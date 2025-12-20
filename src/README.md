@@ -433,6 +433,11 @@ SOFTWARE.
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 0.3.0 | 2024-12-20 | Updated with v0.24 firmware analysis |
+| | | - Zone/channel limits: 10 zones × 99 channels (990 total) |
+| | | - Standby LED: Green LED blinks every 5 seconds (PC14) |
+| | | - Core register sequences unchanged from v0.18 |
+| | | - CTCSS decoding bug fixes noted |
 | 0.2.0 | 2024-12-20 | Added confirmed register values from Ghidra analysis |
 | | | - BK4819: Complete 50+ register init sequence from FUN_08007f04 |
 | | | - SPI Flash: Erase commands 0x20/0x52/0xD8/0xC7 confirmed |

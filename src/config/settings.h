@@ -45,6 +45,11 @@ extern "C" {
 #define CHANNEL_ENTRY_SIZE      24
 #define CHANNEL_BANK_SIZE       (CHANNEL_ENTRY_SIZE * 100)
 
+/* Zone/Channel limits - CONFIRMED from v0.24 changelog */
+#define NUM_ZONES               10      /* v0.24: Changed to 10 zones */
+#define CHANNELS_PER_ZONE       99      /* v0.24: Changed to 99 channels per zone */
+#define MAX_CHANNELS            (NUM_ZONES * CHANNELS_PER_ZONE)  /* 990 total */
+
 /* ============================================================================
  * SETTINGS VERSION
  * ============================================================================ */

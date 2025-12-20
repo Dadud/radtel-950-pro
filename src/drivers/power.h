@@ -45,10 +45,17 @@ typedef enum {
     POWER_STATE_OFF = 0,        /* Power off */
     POWER_STATE_STARTING,       /* Power on sequence */
     POWER_STATE_RUNNING,        /* Normal operation */
+    POWER_STATE_STANDBY,        /* Standby mode (screen off) - v0.24 feature */
     POWER_STATE_LOW_BATTERY,    /* Low battery mode */
     POWER_STATE_CHARGING,       /* Charging (if detected) */
     POWER_STATE_SHUTDOWN        /* Shutdown sequence */
 } PowerState_t;
+
+/* Standby LED configuration - CONFIRMED from v0.24 changelog */
+#define STANDBY_LED_BLINK_INTERVAL_MS   5000    /* Green LED blinks every 5 seconds */
+#define STANDBY_LED_BLINK_DURATION_MS   100     /* LED on duration */
+#define STANDBY_LED_PIN                 GPIO_PIN_14  /* PC14 = Green LED */
+#define STANDBY_LED_PORT                GPIOC
 
 /* ============================================================================
  * BATTERY STATUS STRUCTURE
@@ -167,6 +174,29 @@ void Power_SetAutoOff(uint8_t minutes);
  * Call when user activity is detected.
  */
 void Power_ResetAutoOffTimer(void);
+
+/**
+ * @brief Enter standby mode (v0.24 feature)
+ * 
+ * Screen off, green LED blinks every 5 seconds.
+ * CONFIRMED from v0.24 changelog: "Add standby indicator light, 
+ * green light blinks every 5 seconds after screen off"
+ */
+void Power_EnterStandby(void);
+
+/**
+ * @brief Exit standby mode
+ * 
+ * Returns to normal running state.
+ */
+void Power_ExitStandby(void);
+
+/**
+ * @brief Process standby LED blinking
+ * 
+ * Call from main loop to handle the 5-second LED blink timer.
+ */
+void Power_ProcessStandbyLED(void);
 
 #ifdef __cplusplus
 }
