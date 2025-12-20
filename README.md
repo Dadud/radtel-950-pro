@@ -188,7 +188,7 @@ openocd -f interface/stlink.cfg \
 
 ## Project Status
 
-### Completed
+### Completed ✅
 
 - [x] MCU and memory map identification
 - [x] Complete GPIO pinout mapping
@@ -197,20 +197,31 @@ openocd -f interface/stlink.cfg \
 - [x] Audio/DAC subsystem analysis
 - [x] Bootloader protocol documentation
 - [x] Clean-room firmware skeleton with modular structure
+- [x] **BK4819 initialization sequence** - 50+ registers from FUN_08007f04
+- [x] **SPI Flash driver** - Erase/read/write with confirmed commands
+- [x] **Rotary encoder driver** - Quadrature state machine from FUN_0800e2e0
+- [x] **LCD driver** - 8080 bus protocol with confirmed addresses
+
+### Drivers with Confirmed Register Values
+
+| Driver | Source Function | Key Details |
+|--------|-----------------|-------------|
+| BK4819 RF | FUN_08007f04 | AGC table (16 entries), audio filters, squelch |
+| SPI Flash | FUN_080210c0/f80/ff0 | 4K/32K/64K erase: 0x20/0x52/0xD8 |
+| Encoder | FUN_0800e2e0 | Debounce=200, CW=0x14, CCW=0x16 |
+| LCD | FUN_080271c0/27220 | Cmd buffer 0x2000A1D0, FB 0x20000BD0 |
 
 ### In Progress
 
-- [ ] LCD driver implementation and testing
-- [ ] BK4819 initialization sequences
-- [ ] Keypad and encoder input handling
+- [ ] Keypad matrix scanning (pins confirmed, logic needed)
 - [ ] Menu system framework
+- [ ] Audio DAC/DMA setup
 
 ### TODO (Requires Hardware Validation)
 
 - [ ] Verify LCD controller ID (read 0x04/0xD3)
 - [ ] Confirm SI4732 I2C address (0x11 vs 0x63)
-- [ ] Validate BK4819 register sequences
-- [ ] Test GPS NMEA parsing
+- [ ] Test GPS NMEA parsing with real module
 - [ ] Verify battery voltage divider ratio
 - [ ] RF calibration data format
 

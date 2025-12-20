@@ -50,12 +50,12 @@ src/
 │   ├── dma.h               # DMA for LCD/audio
 │   └── timer.h             # Timer peripherals
 ├── drivers/                # Device drivers
-│   ├── lcd.h               # TFT display driver
+│   ├── lcd.h/c             # TFT display driver [IMPLEMENTED]
 │   ├── keypad.h            # Matrix keypad
-│   ├── encoder.h           # Rotary encoder
-│   ├── bk4819.h            # RF transceiver
+│   ├── encoder.h/c         # Rotary encoder [IMPLEMENTED]
+│   ├── bk4819.h/c          # RF transceiver [IMPLEMENTED]
 │   ├── si4732.h            # Broadcast receiver
-│   ├── spi_flash.h         # External flash storage
+│   ├── spi_flash.h/c       # External flash storage [IMPLEMENTED]
 │   ├── audio.h             # Audio subsystem
 │   └── power.h             # Power management
 ├── radio/                  # Radio core functionality
@@ -289,6 +289,29 @@ openocd -f interface/stlink.cfg \
 
 ---
 
+## Implementation Status
+
+### Drivers with CONFIRMED Register Values
+
+| Driver | Status | Source |
+|--------|--------|--------|
+| BK4819 RF Transceiver | ✅ Complete init sequence | FUN_08007f04 |
+| SPI Flash | ✅ All erase/read/write commands | FUN_080210c0, FUN_08020f80, FUN_08020ff0 |
+| Rotary Encoder | ✅ Quadrature state machine | FUN_0800e2e0 |
+| LCD Display | ✅ 8080 bus protocol | FUN_080271c0, FUN_08027220 |
+
+### Drivers Needing Hardware Verification
+
+| Driver | Status | Notes |
+|--------|--------|-------|
+| Keypad Matrix | ⚠️ Pins confirmed, scan logic needed | FUN_08013618 |
+| SI4732 FM/AM RX | ⚠️ I2C address unconfirmed | 0x11 or 0x63? |
+| Audio DAC | ⚠️ DMA setup needed | FUN_0800dca0 |
+| GPS UART | ⚠️ NMEA parsing needed | FUN_08013f90 |
+| Bluetooth UART | ⚠️ Command protocol unknown | FUN_0800834c |
+
+---
+
 ## Known Issues and TODOs
 
 ### Critical (Must Fix Before Use)
@@ -299,9 +322,11 @@ openocd -f interface/stlink.cfg \
 
 ### High Priority
 
+- [x] ~~Test BK4819 initialization sequence~~ → **CONFIRMED from Ghidra**
+- [x] ~~Implement SPI flash erase/read/write~~ → **CONFIRMED from Ghidra**
+- [x] ~~Implement encoder quadrature decoding~~ → **CONFIRMED from Ghidra**
 - [ ] Verify LCD controller ID (ILI9341/ST7789/other)
 - [ ] Verify SI4732 I2C address (0x11 vs 0x63)
-- [ ] Test BK4819 initialization sequence
 - [ ] Validate battery voltage divider ratio
 - [ ] Test GPS NMEA parsing with real module
 
@@ -312,6 +337,7 @@ openocd -f interface/stlink.cfg \
 - [ ] Implement APRS support
 - [ ] Add spectrum display mode
 - [ ] Implement band relay control
+- [ ] Implement keypad matrix scanning
 
 ### Low Priority
 
@@ -407,6 +433,11 @@ SOFTWARE.
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 0.1.0 | 2024-xx-xx | Initial clean-room skeleton |
+| 0.2.0 | 2024-12-20 | Added confirmed register values from Ghidra analysis |
+| | | - BK4819: Complete 50+ register init sequence from FUN_08007f04 |
+| | | - SPI Flash: Erase commands 0x20/0x52/0xD8/0xC7 confirmed |
+| | | - Encoder: Quadrature state machine from FUN_0800e2e0 |
+| | | - LCD: Command staging buffer at 0x2000A1D0 |
+| 0.1.0 | 2024-12-20 | Initial clean-room skeleton |
 
 
