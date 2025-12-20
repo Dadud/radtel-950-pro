@@ -10,8 +10,12 @@
 #include "hal/gpio.h"
 #include "hal/system.h"
 
-/* Frame buffer location - matches OEM firmware */
+/* CONFIRMED: Memory addresses from Ghidra analysis */
+/* Frame buffer location - matches OEM firmware (DAT_08015790 in FUN_08015730) */
 static uint16_t * const g_framebuffer = (uint16_t *)0x20000BD0;
+
+/* LCD command staging buffer (DAT_08015410 -> 0x2000A1D0) */
+static volatile uint16_t * const g_lcd_cmd_buffer = (volatile uint16_t *)0x2000A1D0;
 
 /* LCD control pin macros for fast access */
 #define LCD_WR_LOW()    GPIOD->CLR = GPIO_PIN_0

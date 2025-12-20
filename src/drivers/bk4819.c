@@ -109,7 +109,8 @@ uint16_t BK4819_ReadReg(BK4819_Instance_t instance, uint8_t reg)
 /**
  * @brief Initialize BK4819 transceiver
  * 
- * INFERRED: Initialization sequence from FUN_80007f04
+ * CONFIRMED: Initialization sequence from FUN_08007f04 (Ghidra analysis)
+ * These register values are extracted directly from OEM firmware.
  */
 void BK4819_Init(BK4819_Instance_t instance)
 {
@@ -144,34 +145,117 @@ void BK4819_Init(BK4819_Instance_t instance)
     /* Wait for BK4819 to be ready after power-up */
     HAL_Delay(100);
     
-    /* Read chip ID to verify communication */
-    uint16_t chip_id = BK4819_ReadReg(instance, BK4819_REG_00);
-    (void)chip_id;  /* TODO: Verify expected ID */
-    
-    /* Soft reset - write 0 to register 0 */
-    BK4819_WriteReg(instance, BK4819_REG_00, 0x0000);
+    /* Soft reset - write 0x8000 to register 0 (CONFIRMED from OEM) */
+    BK4819_WriteReg(instance, 0x00, 0x8000);
+    BK4819_WriteReg(instance, 0x00, 0x0000);
     HAL_Delay(10);
     
-    /* INFERRED: Basic initialization sequence */
-    /* TODO: Verify these values against actual OEM init */
+    /* =========================================================================
+     * CONFIRMED: OEM initialization sequence from FUN_08007f04
+     * All values below are extracted from decompiled firmware
+     * ========================================================================= */
     
-    /* Power control - enable basic blocks */
-    BK4819_WriteReg(instance, BK4819_REG_30, 0x0200);
+    /* Register 0x37: RF filter / bandwidth control */
+    BK4819_WriteReg(instance, 0x37, 0x9D1F);
     
-    /* AFC enable */
-    BK4819_WriteReg(instance, BK4819_REG_0D, 0x0200);
+    /* Registers 0x10-0x14: AGC / gain settings */
+    BK4819_WriteReg(instance, 0x13, 0x03DF);
+    BK4819_WriteReg(instance, 0x12, 0x03DB);
+    BK4819_WriteReg(instance, 0x11, 0x033A);
+    BK4819_WriteReg(instance, 0x10, 0x0318);
+    BK4819_WriteReg(instance, 0x14, 0x0210);
     
-    /* Audio filter settings */
-    BK4819_WriteReg(instance, BK4819_REG_48, 0xB3A8);
+    /* Register 0x49: Audio settings */
+    BK4819_WriteReg(instance, 0x49, 0x2AB2);
     
-    /* Default squelch settings */
-    BK4819_WriteReg(instance, BK4819_REG_3D, 0x2400);
+    /* Register 0x7B: Unknown / calibration */
+    BK4819_WriteReg(instance, 0x7B, 0x73DC);
     
-    /* Default bandwidth (wide) */
-    BK4819_WriteReg(instance, BK4819_REG_37, 0x1F0F);
+    /* Registers 0x1C-0x1F: DTMF / tone settings */
+    BK4819_WriteReg(instance, 0x1C, 0x07C0);
+    BK4819_WriteReg(instance, 0x1D, 0xE555);
+    BK4819_WriteReg(instance, 0x1E, 0x4C58);
+    BK4819_WriteReg(instance, 0x1F, 0x865A);
     
-    /* Enable receiver */
-    BK4819_WriteReg(instance, BK4819_REG_3F, 0x8000);
+    /* Registers 0x3E-0x3F: Enable controls */
+    BK4819_WriteReg(instance, 0x3E, 0x94C6);
+    BK4819_WriteReg(instance, 0x3F, 0x07FE);
+    
+    /* Register 0x25: Unknown */
+    BK4819_WriteReg(instance, 0x25, 0xC1BA);
+    
+    /* Register 0x3A: LNA settings */
+    BK4819_WriteReg(instance, 0x3A, 0x9A7C);
+    
+    /* Register 0x19: Unknown */
+    BK4819_WriteReg(instance, 0x19, 0x1041);
+    
+    /* Registers 0x28-0x2F: Squelch / noise settings */
+    BK4819_WriteReg(instance, 0x28, 0x0B40);
+    BK4819_WriteReg(instance, 0x29, 0xAA00);
+    BK4819_WriteReg(instance, 0x2A, 0x6600);
+    BK4819_WriteReg(instance, 0x2C, 0x0022);
+    BK4819_WriteReg(instance, 0x2F, 0x9890);
+    
+    /* Register 0x53: TX deviation */
+    BK4819_WriteReg(instance, 0x53, 0x2028);
+    
+    /* Register 0x7E: Unknown */
+    BK4819_WriteReg(instance, 0x7E, 0x303E);
+    
+    /* Registers 0x46-0x4F: Audio filter chain */
+    BK4819_WriteReg(instance, 0x46, 0x6050);
+    BK4819_WriteReg(instance, 0x4A, 0x5430);
+    BK4819_WriteReg(instance, 0x48, 0xB3BF);
+    BK4819_WriteReg(instance, 0x49, 0x2AB2);  /* Written again */
+    BK4819_WriteReg(instance, 0x4A, 0x5430);  /* Written again */
+    BK4819_WriteReg(instance, 0x4D, 0xA004);
+    BK4819_WriteReg(instance, 0x4E, 0x3815);
+    BK4819_WriteReg(instance, 0x4F, 0x3F3B);
+    
+    /* Register 0x77: Unknown */
+    BK4819_WriteReg(instance, 0x77, 0xCCEF);
+    
+    /* Register 0x7E: Written again */
+    BK4819_WriteReg(instance, 0x7E, 0x303E);
+    
+    /* Register 0x40: Modify existing value (preserve upper nibble) */
+    uint16_t reg40 = BK4819_ReadReg(instance, 0x40);
+    BK4819_WriteReg(instance, 0x40, (reg40 & 0xF000) | 0x04D2);
+    
+    /* Register 0x7D: Unknown */
+    BK4819_WriteReg(instance, 0x7D, 0xE912);
+    
+    /* Register 0x48: Final audio filter value */
+    BK4819_WriteReg(instance, 0x48, 0xB3FF);
+    
+    /* Register 0x09: AGC gain table (16 entries) */
+    BK4819_WriteReg(instance, 0x09, 0x006F);
+    BK4819_WriteReg(instance, 0x09, 0x106B);
+    BK4819_WriteReg(instance, 0x09, 0x2067);
+    BK4819_WriteReg(instance, 0x09, 0x3062);
+    BK4819_WriteReg(instance, 0x09, 0x4050);
+    BK4819_WriteReg(instance, 0x09, 0x5047);
+    BK4819_WriteReg(instance, 0x09, 0x603A);
+    BK4819_WriteReg(instance, 0x09, 0x702C);
+    BK4819_WriteReg(instance, 0x09, 0x8041);
+    BK4819_WriteReg(instance, 0x09, 0x9037);
+    BK4819_WriteReg(instance, 0x09, 0xA025);
+    BK4819_WriteReg(instance, 0x09, 0xB017);
+    BK4819_WriteReg(instance, 0x09, 0xC0E4);
+    BK4819_WriteReg(instance, 0x09, 0xD0CB);
+    BK4819_WriteReg(instance, 0x09, 0xE0B5);
+    BK4819_WriteReg(instance, 0x09, 0xF09F);
+    
+    /* Registers 0x74-0x75: Unknown / calibration */
+    BK4819_WriteReg(instance, 0x74, 0xE61C);
+    BK4819_WriteReg(instance, 0x44, 0x8F88);
+    BK4819_WriteReg(instance, 0x45, 0x3201);
+    BK4819_WriteReg(instance, 0x75, 0xE61C);
+    
+    /* Registers 0x54-0x55: TX settings */
+    BK4819_WriteReg(instance, 0x54, 0x91C1);
+    BK4819_WriteReg(instance, 0x55, 0x3040);
     
     cfg->initialized = true;
 }
