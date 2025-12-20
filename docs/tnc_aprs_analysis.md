@@ -176,9 +176,41 @@ FEND (C0) | Command (00) | Payload (escaped) | FEND (C0)
 
 ---
 
+## ⚠️ CRITICAL BUG FOUND
+
+### The Problem
+
+The firmware has a bug where **KISS mode does NOT work with Bluetooth!**
+
+Only WinAPRS mode (TNC Type = 1) sends KISS frames to Bluetooth. KISS mode (TNC Type = 3) is broken.
+
+**The buggy code at 0x08014116:**
+```c
+if (tnc_type == 1) {  // Only checks for WinAPRS!
+    send_to_bluetooth(kiss_frame);
+}
+```
+
+### Workaround
+
+**Set TNC Type to "WinAPRS" instead of "KISS"** - this actually uses KISS framing internally and works with APRSDroid.
+
+### Proper Fix
+
+A firmware patch is available in `scripts/patch_kiss_tnc.py` that fixes this bug.
+
+See `docs/bug_report_chinese.md` and `docs/bug_report_english.md` for full details and patch instructions.
+
+---
+
 ## Conclusion
 
-The RT-950 Pro's TNC functionality is **fully compatible with APRSDroid** when configured in KISS mode. The implementation follows standard KISS TNC protocol and transmits/receives via the Bluetooth serial port at 115200 baud.
+The RT-950 Pro's TNC functionality is **compatible with APRSDroid** but requires a workaround or firmware patch:
 
-This is a legitimate, built-in feature - not a hack or workaround.
+1. **Workaround**: Set TNC Type to **WinAPRS** (not KISS)
+2. **Proper fix**: Apply the firmware patch from `scripts/patch_kiss_tnc.py`
+
+The implementation follows standard KISS TNC protocol and transmits/receives via the Bluetooth serial port at 115200 baud.
+
+This is a legitimate, built-in feature with a configuration bug.
 
