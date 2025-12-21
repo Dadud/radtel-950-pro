@@ -6,8 +6,8 @@
  * scanning, and transmit/receive control.
  * 
  * The RT-950 Pro is a dual-band radio with:
- *   - VHF: 136-174 MHz (BK4819 #1)
- *   - UHF: 400-520 MHz (BK4819 #2)
+ *   - VHF: 136-174 MHz (BK4829 #1)
+ *   - UHF: 400-520 MHz (BK4829 #2)
  *   - FM broadcast receiver: 64-108 MHz (SI4732)
  *   - GPS receiver
  * 
@@ -356,5 +356,6 @@ void Radio_SetOffset(uint32_t offset, int8_t direction);
 #endif
 
 #endif /* RADIO_RADIO_H */
+
 
 

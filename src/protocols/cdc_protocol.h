@@ -184,3 +184,4 @@ void CDC_ExitUpdateMode(void);
 #endif /* PROTOCOLS_CDC_PROTOCOL_H */
 
 
+

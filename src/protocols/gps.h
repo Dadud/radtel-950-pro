@@ -191,3 +191,4 @@ void GPS_GetGridLocator(char *buffer, uint8_t precision);
 #endif /* PROTOCOLS_GPS_H */
 
 
+

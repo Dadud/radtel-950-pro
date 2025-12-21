@@ -176,7 +176,7 @@ set(DRIVER_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/lcd.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/keypad.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/encoder.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/bk4819.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/bk4829.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/si4732.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/spi_flash.c
     ${CMAKE_CURRENT_SOURCE_DIR}/../src/drivers/audio.c
@@ -294,5 +294,6 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY ADDITIONAL_CLEAN_FILES
     ${PROJECT_NAME}.hex
     ${PROJECT_NAME}.map
 )
+
 
 

@@ -1,7 +1,29 @@
 # -*- coding: utf-8 -*-
 #@category AT32/Setup
-# Setup memory map for AT32F403A/407 (Cortex-M4), and set entry from vector table.
-# Run after importing the raw firmware at 0x08000000 with language ARM:LE:32:Cortex.
+#@name Setup AT32F403A Memory Map
+#@description Configure memory regions for AT32F403A/407 MCU and set Reset_Handler entry point.
+#@author RT-950 Pro RE Project
+#@keybinding
+#@menupath Tools.AT32.Setup Memory Map
+#@toolbar
+
+"""
+Setup Memory Map for AT32F403A/407 (Cortex-M4)
+
+USAGE:
+  1. Import your firmware binary as Raw Binary
+  2. Set language to ARM:LE:32:Cortex
+  3. Set base address to 0x08000000 (CRITICAL!)
+  4. Run this script from Script Manager
+
+This script will:
+  - Create SRAM region at 0x20000000 (96KB)
+  - Create peripheral regions (GPIO, USART, SPI, etc.)
+  - Set Reset_Handler entry point from vector table at 0x08000004
+
+NOTE: If your binary was imported at 0x80000000 instead of 0x08000000,
+      you must reimport it - simply moving the memory block will break analysis.
+"""
 
 from ghidra.program.model.address import Address
 from ghidra.program.model.symbol import SourceType

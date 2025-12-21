@@ -13,7 +13,7 @@
  *   - 96KB SRAM @ 0x20000000
  *   - External SPI Flash for settings/channels
  *   - 320x240 TFT LCD (8080 parallel interface)
- *   - Dual BK4819 RF transceivers
+ *   - Dual BK4829 RF transceivers
  *   - SI4732 FM/AM broadcast receiver
  *   - GPS module (NMEA over UART)
  *   - Bluetooth module (AT command set)
@@ -34,7 +34,7 @@
 #include "drivers/lcd.h"
 #include "drivers/keypad.h"
 #include "drivers/encoder.h"
-#include "drivers/bk4819.h"
+#include "drivers/bk4829.h"
 #include "drivers/si4732.h"
 #include "drivers/spi_flash.h"
 #include "drivers/audio.h"
@@ -140,8 +140,8 @@ static void System_Init(void)
     Settings_Load();
     
     /* Initialize RF transceivers */
-    BK4819_Init(BK4819_INSTANCE_VHF);  /* Primary RF - hardware SPI */
-    BK4819_Init(BK4819_INSTANCE_UHF);  /* Secondary RF - software SPI */
+    BK4829_Init(BK4829_INSTANCE_VHF);  /* Primary RF - hardware SPI */
+    BK4829_Init(BK4829_INSTANCE_UHF);  /* Secondary RF - software SPI */
     
     /* Initialize broadcast receiver */
     SI4732_Init();
@@ -220,5 +220,6 @@ int main(void)
     
     return 0;  /* Never reached */
 }
+
 
 

@@ -23,8 +23,8 @@ This project is a complete clean-room re-implementation of the Radtel RT-950 Pro
 | Flash | 1MB internal + external SPI NOR | **CONFIRMED** |
 | RAM | 96KB SRAM | **CONFIRMED** |
 | Display | 320×240 TFT (8080 parallel interface) | **CONFIRMED** |
-| RF VHF | BK4819 transceiver (hardware SPI) | **CONFIRMED** |
-| RF UHF | BK4819 transceiver (software SPI) | **CONFIRMED** |
+| RF VHF | BK4829 transceiver (hardware SPI) | **CONFIRMED** |
+| RF UHF | BK4829 transceiver (software SPI) | **CONFIRMED** |
 | Broadcast RX | SI4732 FM/AM receiver (I2C) | **HIGH confidence** |
 | GPS | NMEA module (UART) | **CONFIRMED** |
 | Bluetooth | Serial module (UART) | **CONFIRMED** |
@@ -53,7 +53,7 @@ src/
 │   ├── lcd.h/c             # TFT display driver [IMPLEMENTED]
 │   ├── keypad.h            # Matrix keypad
 │   ├── encoder.h/c         # Rotary encoder [IMPLEMENTED]
-│   ├── bk4819.h/c          # RF transceiver [IMPLEMENTED]
+│   ├── bk4829.h/c          # RF transceiver [IMPLEMENTED]
 │   ├── si4732.h            # Broadcast receiver
 │   ├── spi_flash.h/c       # External flash storage [IMPLEMENTED]
 │   ├── audio.h             # Audio subsystem
@@ -148,10 +148,10 @@ Each hardware mapping and function behavior is tagged with a confidence level:
 | PE1 | Speaker mute | HIGH | Active low |
 | PE3 | PTT output | CONFIRMED | TX control |
 | PE4 | PA enable | CONFIRMED | Power amplifier |
-| PE8 | BK4819 #1 CS | CONFIRMED | Hardware SPI |
-| PE10 | BK4819 #2 SCK | CONFIRMED | Software SPI |
-| PE11 | BK4819 #2 SDA | CONFIRMED | Software SPI |
-| PE15 | BK4819 #2 CS | CONFIRMED | Software SPI |
+| PE8 | BK4829 #1 CS | CONFIRMED | Hardware SPI |
+| PE10 | BK4829 #2 SCK | CONFIRMED | Software SPI |
+| PE11 | BK4829 #2 SDA | CONFIRMED | Software SPI |
+| PE15 | BK4829 #2 CS | CONFIRMED | Software SPI |
 
 ### Memory Map
 
@@ -295,7 +295,7 @@ openocd -f interface/stlink.cfg \
 
 | Driver | Status | Source |
 |--------|--------|--------|
-| BK4819 RF Transceiver | ✅ Complete init sequence | FUN_08007f04 |
+| BK4829 RF Transceiver | ✅ Complete init sequence | FUN_08007f04 |
 | SPI Flash | ✅ All erase/read/write commands | FUN_080210c0, FUN_08020f80, FUN_08020ff0 |
 | Rotary Encoder | ✅ Quadrature state machine | FUN_0800e2e0 |
 | LCD Display | ✅ 8080 bus protocol | FUN_080271c0, FUN_08027220 |
@@ -322,7 +322,7 @@ openocd -f interface/stlink.cfg \
 
 ### High Priority
 
-- [x] ~~Test BK4819 initialization sequence~~ → **CONFIRMED from Ghidra**
+- [x] ~~Test BK4829 initialization sequence~~ → **CONFIRMED from Ghidra**
 - [x] ~~Implement SPI flash erase/read/write~~ → **CONFIRMED from Ghidra**
 - [x] ~~Implement encoder quadrature decoding~~ → **CONFIRMED from Ghidra**
 - [ ] Verify LCD controller ID (ILI9341/ST7789/other)
@@ -439,7 +439,7 @@ SOFTWARE.
 | | | - Core register sequences unchanged from v0.18 |
 | | | - CTCSS decoding bug fixes noted |
 | 0.2.0 | 2024-12-20 | Added confirmed register values from Ghidra analysis |
-| | | - BK4819: Complete 50+ register init sequence from FUN_08007f04 |
+| | | - BK4829: Complete 50+ register init sequence from FUN_08007f04 |
 | | | - SPI Flash: Erase commands 0x20/0x52/0xD8/0xC7 confirmed |
 | | | - Encoder: Quadrature state machine from FUN_0800e2e0 |
 | | | - LCD: Command staging buffer at 0x2000A1D0 |

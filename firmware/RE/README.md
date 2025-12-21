@@ -120,3 +120,4 @@ If cross-references to RAM (`0x2000xxxx`) or peripherals (`0x4000xxxx`) show as 
 | `scripts/fwcrypt_io.py` | Decrypt/encrypt BTF firmware files |
 | `scripts/radtel_flash.py` | Flash firmware via USB CDC |
 
+

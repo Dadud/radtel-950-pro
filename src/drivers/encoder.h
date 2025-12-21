@@ -141,3 +141,4 @@ void Encoder_SetAccelEnabled(bool enable);
 #endif /* DRIVERS_ENCODER_H */
 
 
+

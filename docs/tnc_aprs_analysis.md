@@ -80,12 +80,12 @@ Settings are stored at offset `0x2000A83C` + various offsets:
 │                        RT-950 Pro Radio                         │
 │                                                                 │
 │  ┌─────────┐    ┌───────────┐    ┌─────────┐    ┌───────────┐  │
-│  │ BK4819  │───►│ AFSK 1200 │───►│  KISS   │───►│  USART1   │──┼──► Bluetooth
+│  │ BK4829  │───►│ AFSK 1200 │───►│  KISS   │───►│  USART1   │──┼──► Bluetooth
 │  │   RX    │    │ Demod     │    │ Framer  │    │ PA9/PA10  │  │    (115200 baud)
 │  └─────────┘    └───────────┘    └─────────┘    └───────────┘  │
 │                                                                 │
 │  ┌─────────┐    ┌───────────┐    ┌─────────┐    ┌───────────┐  │
-│  │ BK4819  │◄───│ AFSK 1200 │◄───│  KISS   │◄───│  USART1   │◄─┼─── Bluetooth
+│  │ BK4829  │◄───│ AFSK 1200 │◄───│  KISS   │◄───│  USART1   │◄─┼─── Bluetooth
 │  │   TX    │    │ Modulator │    │ Parser  │    │ PA9/PA10  │  │    (APRSDroid)
 │  └─────────┘    └───────────┘    └─────────┘    └───────────┘  │
 │                                                                 │

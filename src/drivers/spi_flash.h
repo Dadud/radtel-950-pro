@@ -14,7 +14,7 @@
  * The flash uses standard SPI NOR commands. Operations are implemented
  * based on Software_SPI_* functions from the OEM firmware.
  * 
- * @note The SPI bus is shared with BK4819 #2 - chip select discipline
+ * @note The SPI bus is shared with BK4829 #2 - chip select discipline
  *       is critical to avoid conflicts.
  */
 
@@ -187,5 +187,6 @@ uint16_t SPIFlash_ReadWithCRC(uint32_t address, uint8_t *buffer, uint32_t length
 #endif
 
 #endif /* DRIVERS_SPI_FLASH_H */
+
 
 

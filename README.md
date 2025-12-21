@@ -48,8 +48,8 @@ This repository collects reverse engineering artifacts, documentation, and a bui
 
 | Component | Interface | Status |
 |-----------|-----------|--------|
-| BK4819 #1 (VHF/UHF) | Hardware SPI1, CS on PE8 | **CONFIRMED** |
-| BK4819 #2 (VHF/UHF) | Software SPI on GPIOE (SCK=PE10, SDA=PE11, CS=PE15) | **CONFIRMED** |
+| BK4829 #1 (VHF/UHF) | Hardware SPI1, CS on PE8 | **CONFIRMED** |
+| BK4829 #2 (VHF/UHF) | Software SPI on GPIOE (SCK=PE10, SDA=PE11, CS=PE15) | **CONFIRMED** |
 | SI4732 FM/AM Receiver | Bit-banged I2C (SCK=PB6, SDA=PB7) | **HIGH confidence** |
 
 ### Display
@@ -193,11 +193,11 @@ openocd -f interface/stlink.cfg \
 - [x] MCU and memory map identification
 - [x] Complete GPIO pinout mapping
 - [x] Display interface analysis (8080 parallel, MIPI-DCS)
-- [x] RF transceiver interface mapping (dual BK4819)
+- [x] RF transceiver interface mapping (dual BK4829)
 - [x] Audio/DAC subsystem analysis
 - [x] Bootloader protocol documentation
 - [x] Clean-room firmware skeleton with modular structure
-- [x] **BK4819 initialization sequence** - 50+ registers from FUN_08007f04
+- [x] **BK4829 initialization sequence** - 50+ registers from FUN_08007f04
 - [x] **SPI Flash driver** - Erase/read/write with confirmed commands
 - [x] **Rotary encoder driver** - Quadrature state machine from FUN_0800e2e0
 - [x] **LCD driver** - 8080 bus protocol with confirmed addresses
@@ -206,7 +206,7 @@ openocd -f interface/stlink.cfg \
 
 | Driver | Source Function | Key Details |
 |--------|-----------------|-------------|
-| BK4819 RF | FUN_08007f04 | AGC table (16 entries), audio filters, squelch |
+| BK4829 RF | FUN_08007f04 | AGC table (16 entries), audio filters, squelch |
 | SPI Flash | FUN_080210c0/f80/ff0 | 4K/32K/64K erase: 0x20/0x52/0xD8 |
 | Encoder | FUN_0800e2e0 | Debounce=200, CW=0x14, CCW=0x16 |
 | LCD | FUN_080271c0/27220 | Cmd buffer 0x2000A1D0, FB 0x20000BD0 |

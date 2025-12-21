@@ -62,3 +62,4 @@ Exported on: 2025-12-20
 - Ghidra project: `firmware/RE/rt950pro-correct.gpr`
 - Setup script: `firmware/scripts/setup-artery-cortex-m-memory-map.py`
 
+

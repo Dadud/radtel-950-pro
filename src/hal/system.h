@@ -177,3 +177,4 @@ uint32_t HAL_System_GetAPB2ClockHz(void);
 #endif /* HAL_SYSTEM_H */
 
 
+

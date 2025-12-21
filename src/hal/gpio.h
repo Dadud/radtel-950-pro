@@ -194,14 +194,14 @@ typedef enum {
 #define PIN_SIDE_KEY1           GPIOE, GPIO_PIN_5   /* [HIGH] Side key 1 input */
 #define PIN_EXT_PTT             GPIOE, GPIO_PIN_6   /* [HIGH] External PTT input */
 #define PIN_U3T_EN              GPIOE, GPIO_PIN_7   /* [MEDIUM] RF path control */
-#define PIN_BK4819_SEN1         GPIOE, GPIO_PIN_8   /* [CONFIRMED] BK4819 #1 chip select */
+#define PIN_BK4829_SEN1         GPIOE, GPIO_PIN_8   /* [CONFIRMED] BK4829 #1 chip select */
 #define PIN_SW_TO_BT            GPIOE, GPIO_PIN_9   /* [LOW] Switch to Bluetooth? */
-#define PIN_BK4819_SCK          GPIOE, GPIO_PIN_10  /* [CONFIRMED] BK4819 SPI clock */
-#define PIN_BK4819_SDA          GPIOE, GPIO_PIN_11  /* [CONFIRMED] BK4819 SPI data */
+#define PIN_BK4829_SCK          GPIOE, GPIO_PIN_10  /* [CONFIRMED] BK4829 SPI clock */
+#define PIN_BK4829_SDA          GPIOE, GPIO_PIN_11  /* [CONFIRMED] BK4829 SPI data */
 #define PIN_U3R_ENABLE          GPIOE, GPIO_PIN_12  /* [MEDIUM] RF RX path control */
 #define PIN_U6R_ENABLE          GPIOE, GPIO_PIN_13  /* [MEDIUM] RF RX path control */
 #define PIN_SW3T_ENABLE         GPIOE, GPIO_PIN_14  /* [MEDIUM] RF switch control */
-#define PIN_BK4819_SEN2         GPIOE, GPIO_PIN_15  /* [CONFIRMED] BK4819 #2 chip select */
+#define PIN_BK4829_SEN2         GPIOE, GPIO_PIN_15  /* [CONFIRMED] BK4829 #2 chip select */
 
 /* ============================================================================
  * FUNCTION PROTOTYPES
@@ -289,5 +289,6 @@ void HAL_GPIO_WriteMasked(GPIO_Port_t port, uint16_t mask, uint16_t value);
 #endif
 
 #endif /* HAL_GPIO_H */
+
 
 

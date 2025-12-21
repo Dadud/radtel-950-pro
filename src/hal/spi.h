@@ -5,10 +5,10 @@
  * Provides both hardware SPI and bit-banged software SPI support.
  * 
  * Hardware SPI1 is used for:
- *   - BK4819 #1 (VHF transceiver) [CONFIRMED]
+ *   - BK4829 #1 (VHF transceiver) [CONFIRMED]
  * 
  * Software SPI is used for:
- *   - BK4819 #2 (UHF transceiver) via GPIOE [CONFIRMED]
+ *   - BK4829 #2 (UHF transceiver) via GPIOE [CONFIRMED]
  *   - External SPI Flash via GPIOB [CONFIRMED]
  */
 
@@ -71,7 +71,7 @@ typedef enum {
     SPI_INSTANCE_HW2,           /* Hardware SPI2 */
     SPI_INSTANCE_HW3,           /* Hardware SPI3 */
     SPI_INSTANCE_HW4,           /* Hardware SPI4 */
-    SPI_INSTANCE_SW_BK4819,     /* Software SPI for BK4819 #2 */
+    SPI_INSTANCE_SW_BK4829,     /* Software SPI for BK4829 #2 */
     SPI_INSTANCE_SW_FLASH,      /* Software SPI for external flash */
     SPI_INSTANCE_COUNT
 } SPI_Instance_t;
@@ -110,7 +110,7 @@ typedef struct {
  * ============================================================================ */
 
 /**
- * Software SPI for BK4819 #2 (GPIOE)
+ * Software SPI for BK4829 #2 (GPIOE)
  * INFERRED: Second RF transceiver uses bit-banged SPI
  * 
  * PE15: Chip Select (SEN2)
@@ -219,5 +219,6 @@ void HAL_SPI_SW_Write(SPI_Instance_t instance, const uint8_t *tx_buf, uint32_t l
 #endif
 
 #endif /* HAL_SPI_H */
+
 
 
