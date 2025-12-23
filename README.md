@@ -2,9 +2,9 @@
 
 <div align="center">
 
-# 🚨 THIS PROJECT IS AI-GENERATED 🚨
+# 🚨 EXPERIMENTAL PROJECT - USE AT YOUR OWN RISK 🚨
 
-### **CONTENT MAY CONTAIN HALLUCINATIONS OR INACCURACIES**
+### **THIS IS A RESEARCH EXPERIMENT BASED ON REVERSE ENGINEERING**
 
 # 🔴 FLASHING FIRMWARE MAY PERMANENTLY BRICK YOUR RADIO 🔴
 
@@ -16,11 +16,22 @@
 
 ---
 
+## ⚠️ EXPERIMENTAL NATURE & METHODOLOGY
+
+**This project is purely experimental and educational:**
+
+- 🔬 **Reverse Engineering Based**: All code and documentation are derived from analyzing decrypted and decompiled OEM firmware files
+- 🔬 **No Proprietary Source Code**: This is a clean-room implementation - no original source code is included
+- 🔬 **Binary Analysis**: Hardware behavior is inferred through Ghidra disassembly, register dumps, and USB packet captures
+- 🔬 **Incomplete Understanding**: Many hardware details are unconfirmed and may be incorrect
+- 🔬 **Research Project**: This is a community-driven research effort, not production-ready firmware
+
 **⚠️ AI-GENERATED CONTENT WARNING:**
 - ❌ This project and its documentation are almost entirely **AI-generated**
 - ❌ Code, documentation, and instructions may contain **hallucinations or inaccuracies**
 - ❌ Information may be **incorrect, incomplete, or dangerous**
 - ❌ **DO NOT assume any content is correct or safe to use**
+- ❌ All content should be verified against hardware before use
 
 **🔴 BRICKING RISK:**
 - 🔥 **Flashing firmware from this project may PERMANENTLY BRICK your radio**
@@ -28,13 +39,25 @@
 - 🔥 **Repairs may be impossible or require expensive hardware replacement**
 - 🔥 **Calibration data may be permanently lost**
 - 🔥 **No recovery method may be available**
+- 🔥 **Bootloader signature checks may prevent flashing entirely**
 
-**By using this project, you acknowledge that:**
+**📋 Data Sources:**
+- Decrypted firmware binaries (V0.24 and earlier)
+- Ghidra reverse engineering projects
+- USB bootloader protocol captures
+- Register value dumps from OEM firmware
+- Hardware pinout analysis
+- Component datasheets (BK4829, AT32F403A)
+
+**⚠️ By using this project, you acknowledge that:**
+- This is an **experimental research project** based on reverse engineering
 - You understand this is AI-generated content with potential inaccuracies
 - You have backed up your original firmware
+- You understand the methodology is based on decompiled/decrypted firmware analysis
 - You are solely responsible for any damage to your hardware
 - The authors/contributors bear **NO LIABILITY** for any damage or loss
 - Flashing this firmware may **PERMANENTLY BRICK YOUR RADIO**
+- This is **NOT** production firmware and should be treated as experimental research material only
 
 ---
 
