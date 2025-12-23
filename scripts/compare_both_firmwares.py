@@ -182,8 +182,8 @@ def main():
     
     print("Vector Table Comparison:")
     for vec_name, vec_data in report["vector_table_comparison"].items():
-        same = "✓" if vec_data["same_address"] else "✗"
-        print(f"  {vec_name:20s}: {same} RT-950: {vec_data['rt950']:10s} Pro: {vec_data['rt950pro']:10s} (offset: {vec_data['offset_difference']})")
+        same = "[MATCH]" if vec_data["same_address"] else "[DIFF]"
+        print(f"  {vec_name:20s}: {same:8s} RT-950: {vec_data['rt950']:10s} Pro: {vec_data['rt950pro']:10s} (offset: {vec_data['offset_difference']})")
     print()
     
     if report["key_findings"]:

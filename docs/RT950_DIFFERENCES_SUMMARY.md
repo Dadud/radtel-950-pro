@@ -1,8 +1,8 @@
 # RT-950 vs RT-950 Pro: Key Differences Summary
 
 **Analysis Date:** 2025-12-23  
-**RT-950 Firmware:** V0.29 (311.2 KB)  
-**RT-950 Pro Firmware:** V0.24 (size unknown)
+**RT-950 Firmware:** V0.29 (311.2 KB) - Released 2025-11-04  
+**RT-950 Pro Firmware:** V0.24 (369.3 KB) - Released 2025-12-01
 
 ---
 
@@ -10,7 +10,7 @@
 
 The RT-950 and RT-950 Pro firmwares share significant code but have important differences:
 
-1. **RT-950 firmware is ~10% smaller** (311 KB vs likely ~350 KB for Pro)
+1. **RT-950 firmware is 18.7% smaller** (311.2 KB vs 369.3 KB for Pro)
 2. **Functions are at different addresses** - consistent ~2-3 KB offset earlier
 3. **BK4829 initialization is missing/different** - suggests single vs dual transceiver
 4. **Code starts later in RT-950** - has header space before main code
@@ -34,10 +34,11 @@ The RT-950 and RT-950 Pro firmwares share significant code but have important di
 
 | Aspect | RT-950 | RT-950 Pro |
 |--------|--------|------------|
-| **Reset Handler** | `0x08003191` | Likely `0x08000000` |
-| **Code Start Offset** | `0x003191` (~3 KB) | `0x000000` (start) |
-| **Header Space** | ~3 KB before code | Minimal/no header |
-| **Firmware Size** | 311.2 KB | Unknown (likely larger) |
+| **Reset Handler** | `0x08003191` | `0x080032A1` |
+| **Code Start Offset** | `0x003191` (~3 KB) | `0x0032A1` (~3 KB) |
+| **Header Space** | ~3 KB before code | ~3 KB before code (similar) |
+| **Firmware Size** | 311.2 KB | 369.3 KB |
+| **Size Difference** | - | +58.1 KB (18.7% larger) |
 
 **Implication**: RT-950 has bootloader/header space; Pro code starts immediately.
 
