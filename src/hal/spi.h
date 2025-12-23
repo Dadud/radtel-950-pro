@@ -8,7 +8,9 @@
  *   - BK4829 #1 (VHF transceiver) [CONFIRMED]
  * 
  * Software SPI is used for:
- *   - BK4829 #2 (UHF transceiver) via GPIOE [CONFIRMED]
+#if DUAL_BAND_ENABLED
+ *   - BK4829 #2 (UHF transceiver) via GPIOE [CONFIRMED] - Pro only
+#endif
  *   - External SPI Flash via GPIOB [CONFIRMED]
  */
 

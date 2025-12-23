@@ -68,7 +68,9 @@ static const Settings_t g_default_settings = {
     /* Calibration */
     .calibration = {
         .vhf_tx_gain = 50,
+#if DUAL_BAND_ENABLED
         .uhf_tx_gain = 50,
+#endif
         .battery_offset = 0
     }
 };

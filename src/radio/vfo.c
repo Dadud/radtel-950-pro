@@ -6,6 +6,7 @@
  */
 
 #include "radio/vfo.h"
+#include "config/radio_model.h"
 #include "radio/radio.h"
 #include "config/settings.h"
 

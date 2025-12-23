@@ -6,6 +6,8 @@
 #ifndef CONFIG_SETTINGS_H
 #define CONFIG_SETTINGS_H
 
+#include "config/radio_model.h"
+
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -56,7 +58,9 @@ typedef struct {
 /* Calibration data */
 typedef struct {
     uint8_t vhf_tx_gain;
+#if DUAL_BAND_ENABLED
     uint8_t uhf_tx_gain;
+#endif
     int16_t battery_offset;
 } CalibrationSettings_t;
 
