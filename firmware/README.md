@@ -8,9 +8,12 @@ This directory contains firmware binaries and analysis for different RT-950 radi
 firmware/
 ├── rt950/          # RT-950 (Non-Pro) firmware
 │   ├── RT_950_V0.29_251104.BTF
-│   └── README.md
-└── rt950pro/       # RT-950 Pro firmware (if available)
-    └── README.md
+│   ├── README.md
+│   └── analysis/   # Analysis results
+└── rt950pro/       # RT-950 Pro firmware
+    ├── RT_950Pro_V0.24_251201.BTF
+    ├── README.md
+    └── analysis/   # Analysis results (when available)
 ```
 
 ## Firmware Versions
@@ -22,8 +25,14 @@ firmware/
   - APRS stability improvements
 
 ### RT-950 Pro
-- **V0.24** (and earlier) - Previously analyzed versions
-  - See main project README.md for details
+- **V0.24** (2025-12-01) - Current version in repository
+  - Fix channel name display in small font
+  - Add zone name display on main interface
+  - Change to 10 areas × 99 channels per area
+  - Fix CTCSS decoding bug
+  - Spectrum interface improvements
+  - APRS fixes and optimizations
+  - RSSI table display optimization
 
 ## Analysis Process
 

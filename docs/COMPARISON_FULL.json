@@ -1,0 +1,90 @@
+{
+  "comparison_date": "2025-12-23",
+  "rt950": {
+    "firmware_version": "V0.29",
+    "release_date": "2025-11-04",
+    "file_size_kb": 311.22265625,
+    "file_size_bytes": 318692,
+    "sha256": "daf691bc3b7593ec5b16fa66ba6b6228fe95640d24d8a9ca880a3b3199db8df3",
+    "stack_pointer": "0x20015940",
+    "reset_handler": "0x08003191",
+    "ram_usage_kb": 86.3125,
+    "function_candidates": 31,
+    "strings_found": 100
+  },
+  "rt950pro": {
+    "firmware_version": "V0.24",
+    "release_date": "2025-12-01",
+    "file_size_kb": 369.2734375,
+    "file_size_bytes": 378136,
+    "sha256": "559acaf496f32fd5b055bdafce05c9c39c6b8f283ccc9fc06be5a0320e111ff0",
+    "stack_pointer": "0x20015C98",
+    "reset_handler": "0x080032A1",
+    "ram_usage_kb": 87.1484375,
+    "function_candidates": 33,
+    "strings_found": 100
+  },
+  "vector_table_comparison": {
+    "reset_handler": {
+      "rt950": "0x08003191",
+      "rt950pro": "0x080032A1",
+      "offset_difference": "0x0110",
+      "same_address": false
+    },
+    "nmi_handler": {
+      "rt950": "0x08017B59",
+      "rt950pro": "0x0801AEE9",
+      "offset_difference": "0x3390",
+      "same_address": false
+    },
+    "hardfault_handler": {
+      "rt950": "0x08013B0D",
+      "rt950pro": "0x0801699D",
+      "offset_difference": "0x2E90",
+      "same_address": false
+    },
+    "memfault_handler": {
+      "rt950": "0x080163F5",
+      "rt950pro": "0x0801958D",
+      "offset_difference": "0x3198",
+      "same_address": false
+    },
+    "busfault_handler": {
+      "rt950": "0x080037DF",
+      "rt950pro": "0x0800A23B",
+      "offset_difference": "0x6A5C",
+      "same_address": false
+    },
+    "usagefault_handler": {
+      "rt950": "0x080208A1",
+      "rt950pro": "0x08024A69",
+      "offset_difference": "0x41C8",
+      "same_address": false
+    }
+  },
+  "size_comparison": {
+    "size_difference_kb": 58.05078125,
+    "size_difference_bytes": 59444,
+    "size_difference_percent": 18.652492061300567
+  },
+  "memory_comparison": {
+    "ram_usage_difference_kb": 0.8359375,
+    "code_start_offset_rt950": "0x003191",
+    "code_start_offset_rt950pro": "0x0032A1"
+  },
+  "key_findings": [
+    {
+      "finding": "Firmware Size Difference",
+      "description": "RT-950 Pro is 58.1 KB (18.7%) larger than RT-950",
+      "reason": "Additional code for dual-band operation, KISS TNC, and Pro-specific features"
+    }
+  ],
+  "inferences": [
+    {
+      "observation": "Both firmwares have header space",
+      "rt950": "Code starts at 0x003191",
+      "rt950pro": "Code starts at 0x0032A1",
+      "implication": "Both may share bootloader or use similar linker configuration"
+    }
+  ]
+}

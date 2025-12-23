@@ -28,9 +28,19 @@ This document compares the RT-950 (non-Pro) and RT-950 Pro firmware to identify 
 - **Analysis Tool**: Use `scripts/analyze_firmware.py` for binary analysis
 
 ### RT-950 Pro
-- **File**: `RT_950_Pro_V0.24.BTF` (previous versions analyzed)
-- **Size**: ~(to be confirmed from previous analysis)
-- **Status**: Previously decrypted and analyzed
+- **File**: `RT_950Pro_V0.24_251201.BTF`
+- **Size**: 378,136 bytes (~369 KB)
+- **SHA256**: `559ACAF496F32FD5B055BDAFCE05C9C39C6B8F283CCC9FC06BE5A0320E111FF0`
+- **Vector Table**: ✅ Present at offset 0x00 (unencrypted binary)
+  - Stack Pointer: `0x20015C98` (87.1 KB RAM used, 96KB total)
+  - Reset Handler: `0x080032A1`
+  - NMI Handler: `0x0801AEE9`
+  - Hard Fault: `0x0801699D`
+  - Mem Fault: `0x0801958D`
+  - Bus Fault: `0x0800A23B`
+  - Usage Fault: `0x08024A69`
+- **Status**: ✅ Unencrypted, analyzed and ready for comparison
+- **Analysis Tool**: Use `scripts/analyze_firmware.py` for binary analysis
 
 ---
 
@@ -71,13 +81,15 @@ This document compares the RT-950 (non-Pro) and RT-950 Pro firmware to identify 
 
 **Vector Table Comparison:**
 - RT-950 Stack Pointer: `0x20015940` (86.3 KB RAM usage)
-- RT-950 Pro Stack Pointer: (to be compared from Pro analysis)
+- RT-950 Pro Stack Pointer: `0x20015C98` (87.1 KB RAM usage)
 - RT-950 Reset Handler: `0x08003191` (offset 0x003191 from flash base)
-- RT-950 Pro Reset Handler: (to be compared)
+- RT-950 Pro Reset Handler: `0x080032A1` (offset 0x0032A1 from flash base)
+- **Difference**: Reset handlers are very close (offset 0x000110 = 272 bytes apart)
 
 **File Size:**
-- RT-950: 318,692 bytes (311 KB)
-- RT-950 Pro: (to be confirmed from previous analysis)
+- RT-950: 318,692 bytes (311.2 KB)
+- RT-950 Pro: 378,136 bytes (369.3 KB)
+- **Size Difference**: RT-950 Pro is **58.1 KB larger** (18.7% increase)
 
 **Code Patterns:**
 - RT-950 has 67 PUSH {lr} patterns (function prologues)
@@ -115,12 +127,12 @@ This document compares the RT-950 (non-Pro) and RT-950 Pro firmware to identify 
 
 ## Memory Map Comparison (To Be Analyzed)
 
-### RT-950 Pro (Known)
-- **Flash Base**: `0x08000000`
-- **RAM Base**: `0x20000000`
-- **Frame Buffer**: `0x20000BD0` (320×240 RGB565)
-- **Stack**: Top of RAM
-- **Code Start**: `0x08000000` (or very early, reset at vector table)
+### RT-950 Pro (Confirmed from Analysis)
+- **Stack Pointer**: `0x20015C98` (87.1 KB RAM used, 96KB total)
+- **Flash Base**: `0x08000000` (confirmed)
+- **Reset Handler**: `0x080032A1` (offset 0x0032A1)
+- **Code Start**: `0x080032A1` (similar header space to RT-950)
+- **Frame Buffer**: `0x20000BD0` (320×240 RGB565, inferred from Pro analysis)
 
 ### RT-950 (Confirmed from Analysis)
 - **Stack Pointer**: `0x20015940` (86.3 KB RAM usage, 96KB total)
@@ -133,9 +145,11 @@ This document compares the RT-950 (non-Pro) and RT-950 Pro firmware to identify 
 
 | Component | RT-950 Pro | RT-950 | Difference |
 |-----------|------------|--------|------------|
-| **Code Start** | ~`0x08000000` | `0x08003191` | RT-950 starts 0x3191 bytes later |
-| **RAM Usage** | Unknown | 86.3 KB | Confirmed for RT-950 |
-| **Firmware Size** | Unknown | 311.2 KB | RT-950 size confirmed |
+| **Code Start** | `0x080032A1` | `0x08003191` | Pro starts 0x110 bytes later (272 bytes) |
+| **Reset Offset** | 0x0032A1 | 0x003191 | Very similar header space |
+| **RAM Usage** | 87.1 KB | 86.3 KB | Pro uses 0.8 KB more RAM |
+| **Firmware Size** | 369.3 KB | 311.2 KB | Pro is 58.1 KB larger (18.7%) |
+| **Stack Pointer** | `0x20015C98` | `0x20015940` | Pro stack 872 bytes lower |
 
 **Key Observation**: RT-950 has ~3KB header space before code starts. This may be:
 - Bootloader code
