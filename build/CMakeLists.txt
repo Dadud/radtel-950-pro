@@ -42,9 +42,27 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 # Project Definition
 # ============================================================================
 
-project(rt950pro_firmware
+# Radio model selection (RT950 or RT950PRO)
+set(RADIO_MODEL "RT950PRO" CACHE STRING "Radio model: RT950 or RT950PRO")
+set_property(CACHE RADIO_MODEL PROPERTY STRINGS RT950 RT950PRO)
+
+# Validate model selection
+if(NOT RADIO_MODEL STREQUAL "RT950" AND NOT RADIO_MODEL STREQUAL "RT950PRO")
+    message(FATAL_ERROR "RADIO_MODEL must be RT950 or RT950PRO, got: ${RADIO_MODEL}")
+endif()
+
+# Set project name based on model
+if(RADIO_MODEL STREQUAL "RT950")
+    set(PROJECT_NAME "rt950_firmware")
+    set(PROJECT_DESC "Radtel RT-950 Clean-Room Firmware")
+else()
+    set(PROJECT_NAME "rt950pro_firmware")
+    set(PROJECT_DESC "Radtel RT-950 Pro Clean-Room Firmware")
+endif()
+
+project(${PROJECT_NAME}
     VERSION 0.1.0
-    DESCRIPTION "Radtel RT-950 Pro Clean-Room Firmware"
+    DESCRIPTION ${PROJECT_DESC}
     LANGUAGES C ASM
 )
 
@@ -116,7 +134,14 @@ set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ${CPU_FLAGS} -x assembler-with-cpp")
 # Linker Configuration
 # ============================================================================
 
-set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../src/arch/AT32F403AxG_FLASH.ld)
+# Use model-specific linker script if available, otherwise use default
+if(RADIO_MODEL STREQUAL "RT950" AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/../src/arch/AT32F403AxG_FLASH_RT950.ld)
+    set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../src/arch/AT32F403AxG_FLASH_RT950.ld)
+    message(STATUS "Using RT-950 linker script")
+else()
+    set(LINKER_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/../src/arch/AT32F403AxG_FLASH.ld)
+    message(STATUS "Using default linker script")
+endif()
 
 set(LINKER_FLAGS
     ${CPU_FLAGS}
@@ -233,6 +258,15 @@ set(ALL_SOURCES
 # ============================================================================
 # Compile Definitions
 # ============================================================================
+
+# Radio model configuration
+if(RADIO_MODEL STREQUAL "RT950")
+    add_compile_definitions(RADIO_MODEL=RADIO_MODEL_RT950)
+    message(STATUS "Building for: RT-950 (non-Pro)")
+else()
+    add_compile_definitions(RADIO_MODEL=RADIO_MODEL_RT950PRO)
+    message(STATUS "Building for: RT-950 Pro")
+endif()
 
 add_compile_definitions(
     ${MCU_FAMILY}

@@ -7,6 +7,7 @@
  */
 
 #include "drivers/bk4829.h"
+#include "config/radio_model.h"
 #include "hal/gpio.h"
 #include "hal/spi.h"
 #include "hal/system.h"
@@ -26,12 +27,14 @@ static BK4829_Instance_Config_t g_instances[BK4829_INSTANCE_COUNT] = {
         .cs_pin = GPIO_PIN_8,
         .initialized = false
     },
+#if BK4829_INSTANCE_COUNT > 1
     [BK4829_INSTANCE_UHF] = {
         .spi = SPI_INSTANCE_SW_BK4829,
         .cs_port = GPIOE,
         .cs_pin = GPIO_PIN_15,
         .initialized = false
-    }
+    },
+#endif
 };
 
 /* Chip select control */

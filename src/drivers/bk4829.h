@@ -31,14 +31,27 @@ extern "C" {
 #endif
 
 /* ============================================================================
+ * MODEL CONFIGURATION
+ * ============================================================================ */
+
+#include "config/radio_model.h"
+
+/* ============================================================================
  * BK4829 INSTANCE ENUMERATION
  * ============================================================================ */
 
 typedef enum {
     BK4829_INSTANCE_VHF = 0,    /* Primary VHF transceiver (hardware SPI) */
-    BK4829_INSTANCE_UHF,        /* Secondary UHF transceiver (software SPI) */
-    BK4829_INSTANCE_COUNT
+#if BK4829_INSTANCE_COUNT > 1
+    BK4829_INSTANCE_UHF,        /* Secondary UHF transceiver (software SPI) - Pro only */
+#endif
+    BK4829_INSTANCE_COUNT_ENUM  /* Actual count from config */
 } BK4829_Instance_t;
+
+/* Ensure enum count matches configuration */
+#if BK4829_INSTANCE_COUNT != BK4829_INSTANCE_COUNT_ENUM
+    #error "BK4829_INSTANCE_COUNT mismatch between enum and config"
+#endif
 
 /* ============================================================================
  * BK4829 REGISTER ADDRESSES (INFERRED from OEM firmware + datasheet)

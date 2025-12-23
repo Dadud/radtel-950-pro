@@ -51,8 +51,10 @@ static Band_t freq_to_band(uint32_t freq)
 {
     if (freq >= FREQ_VHF_MIN && freq <= FREQ_VHF_MAX) {
         return BAND_VHF;
+#if DUAL_BAND_ENABLED
     } else if (freq >= FREQ_UHF_MIN && freq <= FREQ_UHF_MAX) {
         return BAND_UHF;
+#endif
     } else if (freq >= FREQ_FM_MIN && freq <= FREQ_FM_MAX) {
         return BAND_FM;
     }
@@ -71,7 +73,9 @@ void Radio_Init(void)
     
     /* Initialize BK4829 transceivers */
     BK4829_Init(BK4829_INSTANCE_VHF);
+#if BK4829_INSTANCE_COUNT > 1
     BK4829_Init(BK4829_INSTANCE_UHF);
+#endif
     
     /* Initialize status */
     memset(&g_status, 0, sizeof(g_status));
@@ -113,8 +117,12 @@ void Radio_Process(void)
     
     /* Update RSSI and squelch status when receiving */
     if (g_status.state == RADIO_STATE_IDLE || g_status.state == RADIO_STATE_RX) {
-        BK4829_Instance_t instance = (g_status.active_band == BAND_VHF) ?
-                                      BK4829_INSTANCE_VHF : BK4829_INSTANCE_UHF;
+        BK4829_Instance_t instance = BK4829_INSTANCE_VHF;
+#if DUAL_BAND_ENABLED
+        if (g_status.active_band == BAND_UHF) {
+            instance = BK4829_INSTANCE_UHF;
+        }
+#endif
         
         g_status.rssi = BK4829_GetRSSI(instance);
         
@@ -155,9 +163,20 @@ bool Radio_SetFrequency(uint32_t frequency)
         /* FM broadcast is receive-only */
     }
     
+#if !DUAL_BAND_ENABLED
+    /* Single-band mode: force VHF if not FM */
+    if (band != BAND_FM) {
+        band = BAND_VHF;
+    }
+#endif
+    
     /* Set on appropriate BK4829 */
-    BK4829_Instance_t instance = (band == BAND_VHF) ?
-                                  BK4829_INSTANCE_VHF : BK4829_INSTANCE_UHF;
+    BK4829_Instance_t instance = BK4829_INSTANCE_VHF;
+#if DUAL_BAND_ENABLED
+    if (band == BAND_UHF) {
+        instance = BK4829_INSTANCE_UHF;
+    }
+#endif
     
     BK4829_SetFrequency(instance, frequency);
     
@@ -344,7 +363,9 @@ void Radio_SetPower(PowerLevel_t power)
     }
     
     BK4829_WriteReg(BK4829_INSTANCE_VHF, 0x36, power_reg);
+#if BK4829_INSTANCE_COUNT > 1
     BK4829_WriteReg(BK4829_INSTANCE_UHF, 0x36, power_reg);
+#endif
 }
 
 void Radio_SetSquelch(uint8_t level)
@@ -355,7 +376,9 @@ void Radio_SetSquelch(uint8_t level)
     /* Configure squelch threshold on BK4829 */
     uint16_t sq_reg = 0x5400 | (level << 8);
     BK4829_WriteReg(BK4829_INSTANCE_VHF, 0x78, sq_reg);
+#if BK4829_INSTANCE_COUNT > 1
     BK4829_WriteReg(BK4829_INSTANCE_UHF, 0x78, sq_reg);
+#endif
 }
 
 void Radio_SetCTCSS(uint16_t rx_tone, uint16_t tx_tone)

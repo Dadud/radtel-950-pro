@@ -13,10 +13,14 @@
  *   - 96KB SRAM @ 0x20000000
  *   - External SPI Flash for settings/channels
  *   - 320x240 TFT LCD (8080 parallel interface)
- *   - Dual BK4829 RF transceivers
+ *   - BK4829 RF transceiver(s) - single (RT-950) or dual (RT-950 Pro)
  *   - SI4732 FM/AM broadcast receiver
  *   - GPS module (NMEA over UART)
  *   - Bluetooth module (AT command set)
+ * 
+ * Model selection via RADIO_MODEL CMake option:
+ *   cmake -DRADIO_MODEL=RT950 ..      # Build for RT-950 (non-Pro)
+ *   cmake -DRADIO_MODEL=RT950PRO ..   # Build for RT-950 Pro
  * 
  * @note This file is part of a clean-room reverse engineering effort.
  *       All code is original and does NOT contain proprietary source.
@@ -47,6 +51,8 @@
 #include "ui/ui.h"
 #include "ui/menu.h"
 #include "ui/display.h"
+
+#include "config/radio_model.h"
 
 #include "protocols/cdc_protocol.h"
 #include "protocols/bluetooth.h"
@@ -141,7 +147,9 @@ static void System_Init(void)
     
     /* Initialize RF transceivers */
     BK4829_Init(BK4829_INSTANCE_VHF);  /* Primary RF - hardware SPI */
-    BK4829_Init(BK4829_INSTANCE_UHF);  /* Secondary RF - software SPI */
+#if BK4829_INSTANCE_COUNT > 1
+    BK4829_Init(BK4829_INSTANCE_UHF);  /* Secondary RF - software SPI (Pro only) */
+#endif
     
     /* Initialize broadcast receiver */
     SI4732_Init();

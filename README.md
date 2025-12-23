@@ -71,7 +71,7 @@
 
 # Radtel RT-950 / RT-950 Pro Open Firmware Project
 
-A clean-room firmware re-implementation for the Radtel RT-950 and RT-950 Pro mobile radios. Currently focused on RT-950 Pro with RT-950 support in development.
+A unified clean-room firmware re-implementation for both **Radtel RT-950** and **RT-950 Pro** mobile radios. Build for either model from a single codebase with automatic feature selection.
 
 ## ⚠️ ADDITIONAL DISCLAIMERS
 

@@ -5,9 +5,14 @@
  * High-level radio control including VFO management, channel memory,
  * scanning, and transmit/receive control.
  * 
- * The RT-950 Pro is a dual-band radio with:
+ * RT-950 Pro is a dual-band radio with:
  *   - VHF: 136-174 MHz (BK4829 #1)
  *   - UHF: 400-520 MHz (BK4829 #2)
+ *   - FM broadcast receiver: 64-108 MHz (SI4732)
+ *   - GPS receiver
+ * 
+ * RT-950 (non-Pro) is single-band:
+ *   - VHF: 136-174 MHz (BK4829 #0)
  *   - FM broadcast receiver: 64-108 MHz (SI4732)
  *   - GPS receiver
  * 
@@ -32,11 +37,16 @@ extern "C" {
  * RADIO CONFIGURATION
  * ============================================================================ */
 
+/* Model configuration */
+#include "config/radio_model.h"
+
 /* Frequency limits (INFERRED from OEM firmware) */
 #define FREQ_VHF_MIN        136000000UL     /* 136 MHz */
 #define FREQ_VHF_MAX        174000000UL     /* 174 MHz */
-#define FREQ_UHF_MIN        400000000UL     /* 400 MHz */
-#define FREQ_UHF_MAX        520000000UL     /* 520 MHz */
+#if DUAL_BAND_ENABLED
+#define FREQ_UHF_MIN        400000000UL     /* 400 MHz (Pro only) */
+#define FREQ_UHF_MAX        520000000UL     /* 520 MHz (Pro only) */
+#endif
 #define FREQ_FM_MIN         64000000UL      /* 64 MHz (FM broadcast) */
 #define FREQ_FM_MAX         108000000UL     /* 108 MHz (FM broadcast) */
 
@@ -52,7 +62,7 @@ extern "C" {
 
 /* Channel limits */
 #define CHANNEL_MAX         999             /* Maximum channel number */
-#define VFO_COUNT           2               /* A and B VFOs */
+/* VFO_COUNT defined in radio_model.h */
 
 /* ============================================================================
  * RADIO STATE ENUMERATION
@@ -85,7 +95,9 @@ typedef enum {
 
 typedef enum {
     BAND_VHF = 0,               /* VHF band (136-174 MHz) */
-    BAND_UHF,                   /* UHF band (400-520 MHz) */
+#if DUAL_BAND_ENABLED
+    BAND_UHF,                   /* UHF band (400-520 MHz) - Pro only */
+#endif
     BAND_FM,                    /* FM broadcast (64-108 MHz) */
     BAND_COUNT
 } Band_t;
