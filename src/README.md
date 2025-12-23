@@ -1,13 +1,6 @@
 # Radtel RT-950 Pro Clean-Room Firmware
 
-## ⚠️ IMPORTANT DISCLAIMER
-
-**This is a CLEAN-ROOM re-implementation of the RT-950 Pro firmware.**
-
-- NO proprietary source code is included
-- All behavior is INFERRED from binary analysis
-- This firmware is EXPERIMENTAL and may damage your radio
-- Use at your own risk
+> **⚠️ For disclaimers and warnings, see the [main README.md](../README.md)**
 
 ---
 

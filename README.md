@@ -312,6 +312,8 @@ openocd -f interface/stlink.cfg \
 
 ## Documentation
 
+### General Documentation
+
 | Document | Description |
 |----------|-------------|
 | [`docs/BUILD_AND_FLASH.md`](docs/BUILD_AND_FLASH.md) | **Complete build and flashing guide** |
@@ -322,6 +324,33 @@ openocd -f interface/stlink.cfg \
 | [`docs/Function_Names.csv`](docs/Function_Names.csv) | Firmware function catalogue |
 | [`firmware/README.md`](firmware/README.md) | Ghidra setup and binary files |
 | [`src/README.md`](src/README.md) | Clean-room firmware documentation |
+
+### Source Code Documentation & AI Reasoning
+
+**⚠️ All source code is AI-generated. These documents explain the AI's reasoning for implementation decisions.**
+
+| Document | Description |
+|----------|-------------|
+| [`docs/SOURCE_CODE_DOCUMENTATION.md`](docs/SOURCE_CODE_DOCUMENTATION.md) | **Overview of source code structure and AI reasoning** |
+| [`docs/src_arch.md`](docs/src_arch.md) | Architecture layer (startup, linker script, system init) |
+| [`docs/src_hal.md`](docs/src_hal.md) | HAL layer (GPIO, SPI, UART, ADC, DAC, DMA, Timer) |
+| [`docs/src_drivers_bk4829.md`](docs/src_drivers_bk4829.md) | **BK4829 RF transceiver driver - initialization, frequency, SPI** |
+| [`docs/src_drivers_lcd.md`](docs/src_drivers_lcd.md) | LCD display driver - frame buffer, DMA, 8080 interface |
+| [`docs/src_drivers_spi_flash.md`](docs/src_drivers_spi_flash.md) | SPI Flash driver - erase/write algorithms |
+| [`docs/src_drivers_encoder.md`](docs/src_drivers_encoder.md) | Rotary encoder - quadrature decoding state machine |
+| [`docs/src_radio.md`](docs/src_radio.md) | Radio layer - VFO, channels, CTCSS, scanning |
+| [`docs/src_protocols.md`](docs/src_protocols.md) | Protocols - Bluetooth, GPS, USB CDC |
+| [`docs/src_ui.md`](docs/src_ui.md) | UI layer - menu system, display, fonts |
+| [`docs/src_config.md`](docs/src_config.md) | Configuration - settings storage, calibration |
+
+**Note:** Each documentation file explains:
+- What the code does
+- Why the AI structured it this way
+- Source of information (Ghidra analysis, datasheets, etc.)
+- Confidence levels
+- Potential issues or assumptions
+
+**All of this is AI-generated and may contain hallucinations - verify against hardware!**
 
 ---
 
