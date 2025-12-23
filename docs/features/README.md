@@ -44,9 +44,9 @@ Analysis of porting OpenRTX firmware to RT-950/RT-950 Pro, including hardware co
 
 Features are categorized by implementation difficulty and impact:
 
-- **Quick Wins**: Easy to implement, high user impact
-- **Medium Effort**: Moderate complexity, unique features
-- **Long-Term Projects**: Complex but potentially groundbreaking
+- **High Priority**: Easy to implement, high user impact
+- **Medium Priority**: Moderate complexity, unique features
+- **Low Priority**: Complex but potentially groundbreaking
 
 ## Hardware Capabilities
 

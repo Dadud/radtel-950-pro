@@ -301,9 +301,9 @@ src/signal_processing/
 
 ## Implementation Priority
 
-1. **Quick Wins**: Waterfall display, SNR calculation
-2. **Medium Effort**: Auto-notch filter, RTTY decoder
-3. **Long-Term**: Noise reduction, Direction finding
+1. **High Priority**: Waterfall display, SNR calculation
+2. **Medium Priority**: Auto-notch filter, RTTY decoder
+3. **Low Priority**: Noise reduction, Direction finding
 
 ## Memory Requirements
 

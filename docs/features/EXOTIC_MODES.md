@@ -392,9 +392,9 @@ src/radio/
 
 ## Implementation Priority
 
-1. **Quick Wins**: Enhanced dual-watch, Repeater directory
-2. **Medium Effort**: Cross-band bridge, Activity heatmap, Calibration
-3. **Long-Term**: Direction finding, Diversity reception, Frequency hopping
+1. **High Priority**: Enhanced dual-watch, Repeater directory
+2. **Medium Priority**: Cross-band bridge, Activity heatmap, Calibration
+3. **Low Priority**: Direction finding, Diversity reception, Frequency hopping
 
 ## Memory Requirements
 

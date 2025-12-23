@@ -367,9 +367,9 @@ src/ui/
 
 ## Implementation Priority
 
-1. **Quick Wins**: Themes, High-contrast mode, Custom boot logo
-2. **Medium Effort**: Widgets, Data logging, Gestures
-3. **Long-Term**: Animations, Advanced widgets
+1. **High Priority**: Themes, High-contrast mode, Custom boot logo
+2. **Medium Priority**: Widgets, Data logging, Gestures
+3. **Low Priority**: Animations, Advanced widgets
 
 ## Memory Requirements
 

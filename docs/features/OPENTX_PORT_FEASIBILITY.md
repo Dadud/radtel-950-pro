@@ -246,7 +246,7 @@ openocd -f interface/stlink.cfg -f target/stm32f4x.cfg \
 - **Selective feature adoption**: M17 code, UI components
 - **Hybrid approach**: Use OpenRTX code where applicable, custom code for BK4829
 
-This would be **faster** and **less risky** than full port.
+This would be **less risky** than full port.
 
 ---
 
@@ -259,7 +259,7 @@ This would be **faster** and **less risky** than full port.
 | **Brick during porting** | Medium | High | ✅ SWD recovery available |
 | **RAM exhaustion** | High | High | Optimize, disable features |
 | **RF driver complexity** | High | Medium | Start simple, iterate |
-| **Time overrun** | High | Medium | Incremental approach |
+| **Scope creep** | High | Medium | Incremental approach |
 
 ### Recovery Risks
 

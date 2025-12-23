@@ -394,9 +394,9 @@ src/automation/
 
 ## Implementation Priority
 
-1. **Quick Wins**: Scheduled operations, Beacon scheduling
-2. **Medium Effort**: Smart scanning, Adaptive squelch, Auto-repeater
-3. **Long-Term**: Conditional logic, Macros, Frequency hopping
+1. **High Priority**: Scheduled operations, Beacon scheduling
+2. **Medium Priority**: Smart scanning, Adaptive squelch, Auto-repeater
+3. **Low Priority**: Conditional logic, Macros, Frequency hopping
 
 ## Memory Requirements
 

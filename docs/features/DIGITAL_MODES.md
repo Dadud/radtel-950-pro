@@ -345,9 +345,9 @@ src/digital_modes/
 
 ## Implementation Priority
 
-1. **Quick Wins**: RTTY decoder, Advanced CW
-2. **Medium Effort**: Packet Radio TNC, WSPR beacon
-3. **Long-Term**: M17, FreeDV, LoRa-like modes
+1. **High Priority**: RTTY decoder, Advanced CW
+2. **Medium Priority**: Packet Radio TNC, WSPR beacon
+3. **Low Priority**: M17, FreeDV, LoRa-like modes
 
 ## Memory Requirements
 

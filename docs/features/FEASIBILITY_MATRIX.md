@@ -10,9 +10,9 @@ Comprehensive comparison of all exotic features, evaluating hardware feasibility
 - **LOW**: Questionable feasibility, may require hardware modifications or has significant challenges
 
 ### Complexity Levels
-- **SIMPLE**: < 1 week implementation, minimal code
-- **MODERATE**: 1-4 weeks implementation, moderate code complexity
-- **COMPLEX**: 1-3 months implementation, significant code complexity
+- **SIMPLE**: Minimal code, straightforward implementation
+- **MODERATE**: Moderate code complexity, requires careful design
+- **COMPLEX**: Significant code complexity, requires extensive development
 
 ### Risk Levels
 - **LOW**: Low risk of breaking radio, easy to test
@@ -90,7 +90,7 @@ Given hardware constraints (96KB RAM, single-core 240MHz CPU), features should b
 
 ## Priority Recommendations
 
-### Phase 1: Quick Wins (Low Risk, High Impact)
+### Phase 1: High Priority (Low Risk, High Impact)
 1. Themes & Customization
 2. High-Contrast Mode
 3. Custom Boot Logo
@@ -109,7 +109,7 @@ Given hardware constraints (96KB RAM, single-core 240MHz CPU), features should b
 
 **Total Phase 1**: ~30KB RAM, ~150KB Flash, ~20% CPU
 
-### Phase 2: Medium Effort (Moderate Complexity)
+### Phase 2: Medium Priority (Moderate Complexity)
 1. Waterfall Display
 2. Dashboard Widgets
 3. Data Logging & Graphs
@@ -130,7 +130,7 @@ Given hardware constraints (96KB RAM, single-core 240MHz CPU), features should b
 
 **Total Phase 2**: ~60KB RAM, ~250KB Flash, ~50% CPU
 
-### Phase 3: Long-Term Projects (Complex, High Risk)
+### Phase 3: Low Priority (Complex, High Risk)
 1. M17 Digital Voice
 2. FreeDV Integration
 3. OTA Updates
@@ -179,9 +179,9 @@ Given hardware constraints (96KB RAM, single-core 240MHz CPU), features should b
 ## Implementation Strategy
 
 ### Recommended Approach
-1. **Start with Quick Wins**: Build user base and test framework
-2. **Add Medium Features**: Expand functionality gradually
-3. **Research Long-Term**: Investigate feasibility before committing
+1. **Start with High Priority Features**: Build user base and test framework
+2. **Add Medium Priority Features**: Expand functionality gradually
+3. **Research Low Priority Features**: Investigate feasibility before committing
 4. **Optimize Continuously**: Reduce memory/CPU usage as features added
 5. **Test Thoroughly**: Each feature should be tested independently
 

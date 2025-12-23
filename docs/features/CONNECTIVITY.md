@@ -391,9 +391,9 @@ src/system/
 
 ## Implementation Priority
 
-1. **Quick Wins**: Remote control, Settings sync, NTP sync
-2. **Medium Effort**: APRS iGate, Voice recording, GPS tracker
-3. **Long-Term**: OTA updates, Bluetooth audio
+1. **High Priority**: Remote control, Settings sync, NTP sync
+2. **Medium Priority**: APRS iGate, Voice recording, GPS tracker
+3. **Low Priority**: OTA updates, Bluetooth audio
 
 ## Memory Requirements
 
