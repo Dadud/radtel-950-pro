@@ -54,6 +54,14 @@ A clean-room firmware re-implementation for the Radtel RT-950 Pro dual-band mobi
 
 ---
 
+## Community & Discussion
+
+💬 **Join the discussion on Discord:** [https://discord.gg/Hv8ye72VtV](https://discord.gg/Hv8ye72VtV)
+
+Get help, share progress, discuss hardware findings, or collaborate with other developers working on RT-950 Pro firmware.
+
+---
+
 ## Project Overview
 
 This repository collects reverse engineering artifacts, documentation, and a buildable clean-room firmware skeleton for the Radtel RT-950 Pro. The goal is to enable an open, hackable replacement firmware for the amateur radio community.
