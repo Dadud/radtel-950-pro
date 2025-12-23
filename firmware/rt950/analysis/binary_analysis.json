@@ -1,0 +1,1127 @@
+{
+  "file_info": {
+    "filename": "RT_950_V0.29_251104.BTF",
+    "size_bytes": 318692,
+    "size_kb": 311.22265625,
+    "sha256": "daf691bc3b7593ec5b16fa66ba6b6228fe95640d24d8a9ca880a3b3199db8df3",
+    "ram_size_kb": 86.3125,
+    "code_start_offset": "0x003191",
+    "code_start_address": "0x08003191"
+  },
+  "vector_table": {
+    "stack_pointer": {
+      "address": "0x20015940",
+      "offset": "0x0000",
+      "in_flash_range": false,
+      "in_ram_range": true
+    },
+    "reset_handler": {
+      "address": "0x08003191",
+      "offset": "0x0004",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "nmi_handler": {
+      "address": "0x08017B59",
+      "offset": "0x0008",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "hardfault_handler": {
+      "address": "0x08013B0D",
+      "offset": "0x000C",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "memfault_handler": {
+      "address": "0x080163F5",
+      "offset": "0x0010",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "busfault_handler": {
+      "address": "0x080037DF",
+      "offset": "0x0014",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "usagefault_handler": {
+      "address": "0x080208A1",
+      "offset": "0x0018",
+      "in_flash_range": true,
+      "in_ram_range": false
+    },
+    "svc_handler": {
+      "address": "0x00000000",
+      "offset": "0x001C",
+      "in_flash_range": false,
+      "in_ram_range": false
+    },
+    "debugmon_handler": {
+      "address": "0x00000000",
+      "offset": "0x0020",
+      "in_flash_range": false,
+      "in_ram_range": false
+    },
+    "pendsv_handler": {
+      "address": "0x00000000",
+      "offset": "0x0024",
+      "in_flash_range": false,
+      "in_ram_range": false
+    },
+    "systick_handler": {
+      "address": "0x00000000",
+      "offset": "0x0028",
+      "in_flash_range": false,
+      "in_ram_range": false
+    }
+  },
+  "function_candidates": [
+    {
+      "address": "0x0800030C",
+      "offset": "0x00030C",
+      "pattern": "10b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08000354",
+      "offset": "0x000354",
+      "pattern": "10b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0800038A",
+      "offset": "0x00038A",
+      "pattern": "10b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x080003EE",
+      "offset": "0x0003EE",
+      "pattern": "10b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08002268",
+      "offset": "0x002268",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08002706",
+      "offset": "0x002706",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0800348E",
+      "offset": "0x00348E",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0800D9E2",
+      "offset": "0x00D9E2",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0800F140",
+      "offset": "0x00F140",
+      "pattern": "10b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08010868",
+      "offset": "0x010868",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08018B6C",
+      "offset": "0x018B6C",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0801BC84",
+      "offset": "0x01BC84",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0801E8D2",
+      "offset": "0x01E8D2",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x080202E8",
+      "offset": "0x0202E8",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08021E3C",
+      "offset": "0x021E3C",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08022ECC",
+      "offset": "0x022ECC",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x080232DE",
+      "offset": "0x0232DE",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08026D62",
+      "offset": "0x026D62",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x08028410",
+      "offset": "0x028410",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0802A064",
+      "offset": "0x02A064",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0802DBC0",
+      "offset": "0x02DBC0",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0802DC40",
+      "offset": "0x02DC40",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803A340",
+      "offset": "0x03A340",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803A4C0",
+      "offset": "0x03A4C0",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803A540",
+      "offset": "0x03A540",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803A640",
+      "offset": "0x03A640",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803D440",
+      "offset": "0x03D440",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803E0C0",
+      "offset": "0x03E0C0",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803ED40",
+      "offset": "0x03ED40",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803EEC0",
+      "offset": "0x03EEC0",
+      "pattern": "00b5",
+      "confidence": "medium"
+    },
+    {
+      "address": "0x0803FB40",
+      "offset": "0x03FB40",
+      "pattern": "00b5",
+      "confidence": "medium"
+    }
+  ],
+  "string_table": [
+    {
+      "offset": "0x0002F6",
+      "address": "0x080002F6",
+      "string": "pF1F:FcF",
+      "length": 8
+    },
+    {
+      "offset": "0x0003D9",
+      "address": "0x080003D9",
+      "string": "FpGpGpGBT-9000     ",
+      "length": 19
+    },
+    {
+      "offset": "0x000414",
+      "address": "0x08000414",
+      "string": "`;%Au",
+      "length": 5
+    },
+    {
+      "offset": "0x00043C",
+      "address": "0x0800043C",
+      "string": "o{V6",
+      "length": 4
+    },
+    {
+      "offset": "0x00047D",
+      "address": "0x0800047D",
+      "string": "Uh[x\"2X",
+      "length": 7
+    },
+    {
+      "offset": "0x00058A",
+      "address": "0x0800058A",
+      "string": "!:X-",
+      "length": 4
+    },
+    {
+      "offset": "0x000600",
+      "address": "0x08000600",
+      "string": "TEOB$",
+      "length": 5
+    },
+    {
+      "offset": "0x000621",
+      "address": "0x08000621",
+      "string": "TSNr",
+      "length": 4
+    },
+    {
+      "offset": "0x000665",
+      "address": "0x08000665",
+      "string": "MMib",
+      "length": 4
+    },
+    {
+      "offset": "0x0006BD",
+      "address": "0x080006BD",
+      "string": "/:DM",
+      "length": 4
+    },
+    {
+      "offset": "0x00075D",
+      "address": "0x0800075D",
+      "string": "\\dE?",
+      "length": 4
+    },
+    {
+      "offset": "0x00083B",
+      "address": "0x0800083B",
+      "string": "TuB:",
+      "length": 4
+    },
+    {
+      "offset": "0x00087E",
+      "address": "0x0800087E",
+      "string": "%Pw%",
+      "length": 4
+    },
+    {
+      "offset": "0x0008AF",
+      "address": "0x080008AF",
+      "string": ",o>7",
+      "length": 4
+    },
+    {
+      "offset": "0x0008E8",
+      "address": "0x080008E8",
+      "string": "(uhi",
+      "length": 4
+    },
+    {
+      "offset": "0x000A64",
+      "address": "0x08000A64",
+      "string": "?;^\\",
+      "length": 4
+    },
+    {
+      "offset": "0x000AA9",
+      "address": "0x08000AA9",
+      "string": "F\\|`",
+      "length": 4
+    },
+    {
+      "offset": "0x000AC9",
+      "address": "0x08000AC9",
+      "string": "|qd}",
+      "length": 4
+    },
+    {
+      "offset": "0x000B3C",
+      "address": "0x08000B3C",
+      "string": "zL6^",
+      "length": 4
+    },
+    {
+      "offset": "0x000B95",
+      "address": "0x08000B95",
+      "string": "#`$I",
+      "length": 4
+    },
+    {
+      "offset": "0x000BA4",
+      "address": "0x08000BA4",
+      "string": "B2 ;",
+      "length": 4
+    },
+    {
+      "offset": "0x000D6E",
+      "address": "0x08000D6E",
+      "string": "/Dd,",
+      "length": 4
+    },
+    {
+      "offset": "0x000EAE",
+      "address": "0x08000EAE",
+      "string": "*vqV",
+      "length": 4
+    },
+    {
+      "offset": "0x000F2E",
+      "address": "0x08000F2E",
+      "string": "y4jV",
+      "length": 4
+    },
+    {
+      "offset": "0x000F49",
+      "address": "0x08000F49",
+      "string": "|Dfc",
+      "length": 4
+    },
+    {
+      "offset": "0x000F64",
+      "address": "0x08000F64",
+      "string": "6y_x",
+      "length": 4
+    },
+    {
+      "offset": "0x000FB9",
+      "address": "0x08000FB9",
+      "string": "?)?r",
+      "length": 4
+    },
+    {
+      "offset": "0x000FC9",
+      "address": "0x08000FC9",
+      "string": "|KQf",
+      "length": 4
+    },
+    {
+      "offset": "0x000FE4",
+      "address": "0x08000FE4",
+      "string": "1+Qf/",
+      "length": 5
+    },
+    {
+      "offset": "0x001001",
+      "address": "0x08001001",
+      "string": "dJ?dn",
+      "length": 5
+    },
+    {
+      "offset": "0x00102E",
+      "address": "0x0800102E",
+      "string": "{2svzM",
+      "length": 6
+    },
+    {
+      "offset": "0x0010B7",
+      "address": "0x080010B7",
+      "string": "AI6%",
+      "length": 4
+    },
+    {
+      "offset": "0x001117",
+      "address": "0x08001117",
+      "string": "`aou",
+      "length": 4
+    },
+    {
+      "offset": "0x001164",
+      "address": "0x08001164",
+      "string": "awZf",
+      "length": 4
+    },
+    {
+      "offset": "0x0011BC",
+      "address": "0x080011BC",
+      "string": "1Lz^",
+      "length": 4
+    },
+    {
+      "offset": "0x0011DB",
+      "address": "0x080011DB",
+      "string": "+{iN",
+      "length": 4
+    },
+    {
+      "offset": "0x001202",
+      "address": "0x08001202",
+      "string": "J?d~X",
+      "length": 5
+    },
+    {
+      "offset": "0x0012E4",
+      "address": "0x080012E4",
+      "string": "U?Q|",
+      "length": 4
+    },
+    {
+      "offset": "0x0012EE",
+      "address": "0x080012EE",
+      "string": "WDw,",
+      "length": 4
+    },
+    {
+      "offset": "0x00133E",
+      "address": "0x0800133E",
+      "string": "9x|J",
+      "length": 4
+    },
+    {
+      "offset": "0x0013B5",
+      "address": "0x080013B5",
+      "string": "&g.I",
+      "length": 4
+    },
+    {
+      "offset": "0x001406",
+      "address": "0x08001406",
+      "string": "#,y+",
+      "length": 4
+    },
+    {
+      "offset": "0x0014BD",
+      "address": "0x080014BD",
+      "string": "*<^5",
+      "length": 4
+    },
+    {
+      "offset": "0x001641",
+      "address": "0x08001641",
+      "string": "Ozud",
+      "length": 4
+    },
+    {
+      "offset": "0x001646",
+      "address": "0x08001646",
+      "string": "tl'&",
+      "length": 4
+    },
+    {
+      "offset": "0x001683",
+      "address": "0x08001683",
+      "string": "(c09,",
+      "length": 5
+    },
+    {
+      "offset": "0x001694",
+      "address": "0x08001694",
+      "string": "\"[x#D",
+      "length": 5
+    },
+    {
+      "offset": "0x0016AC",
+      "address": "0x080016AC",
+      "string": "hS}v",
+      "length": 4
+    },
+    {
+      "offset": "0x0016D5",
+      "address": "0x080016D5",
+      "string": "{%nR",
+      "length": 4
+    },
+    {
+      "offset": "0x001717",
+      "address": "0x08001717",
+      "string": "Lodv;",
+      "length": 5
+    },
+    {
+      "offset": "0x001749",
+      "address": "0x08001749",
+      "string": "fgg2",
+      "length": 4
+    },
+    {
+      "offset": "0x001755",
+      "address": "0x08001755",
+      "string": "{gnT",
+      "length": 4
+    },
+    {
+      "offset": "0x001773",
+      "address": "0x08001773",
+      "string": ";S,d1",
+      "length": 5
+    },
+    {
+      "offset": "0x0017FC",
+      "address": "0x080017FC",
+      "string": "~ZMa",
+      "length": 4
+    },
+    {
+      "offset": "0x00183B",
+      "address": "0x0800183B",
+      "string": "#vj2",
+      "length": 4
+    },
+    {
+      "offset": "0x001844",
+      "address": "0x08001844",
+      "string": ")~/$",
+      "length": 4
+    },
+    {
+      "offset": "0x0018DB",
+      "address": "0x080018DB",
+      "string": "w_zn&:)",
+      "length": 7
+    },
+    {
+      "offset": "0x001964",
+      "address": "0x08001964",
+      "string": "#<Q|",
+      "length": 4
+    },
+    {
+      "offset": "0x001A9C",
+      "address": "0x08001A9C",
+      "string": "A9u`G",
+      "length": 5
+    },
+    {
+      "offset": "0x001AA2",
+      "address": "0x08001AA2",
+      "string": "^7ssa",
+      "length": 5
+    },
+    {
+      "offset": "0x001B4A",
+      "address": "0x08001B4A",
+      "string": "Z!=d",
+      "length": 4
+    },
+    {
+      "offset": "0x001B55",
+      "address": "0x08001B55",
+      "string": "W]XT",
+      "length": 4
+    },
+    {
+      "offset": "0x001BD9",
+      "address": "0x08001BD9",
+      "string": "oOW0",
+      "length": 4
+    },
+    {
+      "offset": "0x001BDE",
+      "address": "0x08001BDE",
+      "string": "QN7D",
+      "length": 4
+    },
+    {
+      "offset": "0x001BE9",
+      "address": "0x08001BE9",
+      "string": "RceL",
+      "length": 4
+    },
+    {
+      "offset": "0x001C3B",
+      "address": "0x08001C3B",
+      "string": "<KB8P",
+      "length": 5
+    },
+    {
+      "offset": "0x001C4C",
+      "address": "0x08001C4C",
+      "string": "Tb2k",
+      "length": 4
+    },
+    {
+      "offset": "0x001CC1",
+      "address": "0x08001CC1",
+      "string": "lw;]",
+      "length": 4
+    },
+    {
+      "offset": "0x001CF4",
+      "address": "0x08001CF4",
+      "string": "Ia>88*",
+      "length": 6
+    },
+    {
+      "offset": "0x001D64",
+      "address": "0x08001D64",
+      "string": "|8Qx",
+      "length": 4
+    },
+    {
+      "offset": "0x001DDC",
+      "address": "0x08001DDC",
+      "string": "f{K&t",
+      "length": 5
+    },
+    {
+      "offset": "0x001DF4",
+      "address": "0x08001DF4",
+      "string": "ZE89",
+      "length": 4
+    },
+    {
+      "offset": "0x001E2D",
+      "address": "0x08001E2D",
+      "string": ",Zt<",
+      "length": 4
+    },
+    {
+      "offset": "0x001E34",
+      "address": "0x08001E34",
+      "string": ".M5BI",
+      "length": 5
+    },
+    {
+      "offset": "0x001EB8",
+      "address": "0x08001EB8",
+      "string": ",\\3,",
+      "length": 4
+    },
+    {
+      "offset": "0x001F13",
+      "address": "0x08001F13",
+      "string": "_m9D",
+      "length": 4
+    },
+    {
+      "offset": "0x001F1F",
+      "address": "0x08001F1F",
+      "string": "cB\"k",
+      "length": 4
+    },
+    {
+      "offset": "0x001F81",
+      "address": "0x08001F81",
+      "string": "D^%*",
+      "length": 4
+    },
+    {
+      "offset": "0x001F9A",
+      "address": "0x08001F9A",
+      "string": "Zs @U`",
+      "length": 6
+    },
+    {
+      "offset": "0x001FC2",
+      "address": "0x08001FC2",
+      "string": "oeIX",
+      "length": 4
+    },
+    {
+      "offset": "0x002006",
+      "address": "0x08002006",
+      "string": "G0Js",
+      "length": 4
+    },
+    {
+      "offset": "0x002017",
+      "address": "0x08002017",
+      "string": "ldD=",
+      "length": 4
+    },
+    {
+      "offset": "0x002091",
+      "address": "0x08002091",
+      "string": "YCQ9r",
+      "length": 5
+    },
+    {
+      "offset": "0x00212C",
+      "address": "0x0800212C",
+      "string": "%t*xg",
+      "length": 5
+    },
+    {
+      "offset": "0x002169",
+      "address": "0x08002169",
+      "string": "_i`Bp",
+      "length": 5
+    },
+    {
+      "offset": "0x0021DD",
+      "address": "0x080021DD",
+      "string": "2N$q",
+      "length": 4
+    },
+    {
+      "offset": "0x00221A",
+      "address": "0x0800221A",
+      "string": "_faU",
+      "length": 4
+    },
+    {
+      "offset": "0x002297",
+      "address": "0x08002297",
+      "string": "L~d+Y",
+      "length": 5
+    },
+    {
+      "offset": "0x002318",
+      "address": "0x08002318",
+      "string": ":LJo",
+      "length": 4
+    },
+    {
+      "offset": "0x002398",
+      "address": "0x08002398",
+      "string": "XJ;3",
+      "length": 4
+    },
+    {
+      "offset": "0x0023A0",
+      "address": "0x080023A0",
+      "string": "6s /",
+      "length": 4
+    },
+    {
+      "offset": "0x0026A4",
+      "address": "0x080026A4",
+      "string": "NwI0",
+      "length": 4
+    },
+    {
+      "offset": "0x0026BB",
+      "address": "0x080026BB",
+      "string": "4h)?",
+      "length": 4
+    },
+    {
+      "offset": "0x0026F3",
+      "address": "0x080026F3",
+      "string": "JHX ",
+      "length": 4
+    },
+    {
+      "offset": "0x00274C",
+      "address": "0x0800274C",
+      "string": ")e6N",
+      "length": 4
+    },
+    {
+      "offset": "0x00278D",
+      "address": "0x0800278D",
+      "string": "P+rd",
+      "length": 4
+    },
+    {
+      "offset": "0x0027DE",
+      "address": "0x080027DE",
+      "string": "ER3)=G#P",
+      "length": 8
+    },
+    {
+      "offset": "0x002A65",
+      "address": "0x08002A65",
+      "string": "YQ|[",
+      "length": 4
+    },
+    {
+      "offset": "0x002B39",
+      "address": "0x08002B39",
+      "string": "%65\\",
+      "length": 4
+    },
+    {
+      "offset": "0x002B4A",
+      "address": "0x08002B4A",
+      "string": "]$XC",
+      "length": 4
+    }
+  ],
+  "patterns": {
+    "register_addresses": [
+      {
+        "address": "0x40AF1B1D",
+        "frequency": 32
+      },
+      {
+        "address": "0x43832AC2",
+        "frequency": 31
+      },
+      {
+        "address": "0x499101A4",
+        "frequency": 31
+      },
+      {
+        "address": "0x41D6923A",
+        "frequency": 30
+      },
+      {
+        "address": "0x4D95EA4C",
+        "frequency": 29
+      },
+      {
+        "address": "0x420D38F8",
+        "frequency": 29
+      },
+      {
+        "address": "0x43D4674E",
+        "frequency": 28
+      },
+      {
+        "address": "0x4F3C8950",
+        "frequency": 27
+      },
+      {
+        "address": "0x4B22BFC9",
+        "frequency": 26
+      },
+      {
+        "address": "0x46DD75E1",
+        "frequency": 25
+      },
+      {
+        "address": "0x4920D747",
+        "frequency": 17
+      },
+      {
+        "address": "0x425AD47D",
+        "frequency": 16
+      },
+      {
+        "address": "0x40327DC8",
+        "frequency": 16
+      },
+      {
+        "address": "0x46005E00",
+        "frequency": 15
+      },
+      {
+        "address": "0x4E4FFB64",
+        "frequency": 15
+      },
+      {
+        "address": "0x4A97D4EA",
+        "frequency": 15
+      },
+      {
+        "address": "0x4C009C00",
+        "frequency": 13
+      },
+      {
+        "address": "0x4DEDD390",
+        "frequency": 12
+      },
+      {
+        "address": "0x4BA31E42",
+        "frequency": 12
+      },
+      {
+        "address": "0x47719EAE",
+        "frequency": 11
+      },
+      {
+        "address": "0x40703AED",
+        "frequency": 10
+      },
+      {
+        "address": "0x4D294070",
+        "frequency": 10
+      },
+      {
+        "address": "0x40008A25",
+        "frequency": 9
+      },
+      {
+        "address": "0x44006531",
+        "frequency": 8
+      },
+      {
+        "address": "0x4AE10000",
+        "frequency": 8
+      },
+      {
+        "address": "0x420030B4",
+        "frequency": 7
+      },
+      {
+        "address": "0x440061CD",
+        "frequency": 7
+      },
+      {
+        "address": "0x4200746C",
+        "frequency": 7
+      },
+      {
+        "address": "0x4D5ACBFA",
+        "frequency": 6
+      },
+      {
+        "address": "0x440021E9",
+        "frequency": 6
+      },
+      {
+        "address": "0x40B6E000",
+        "frequency": 5
+      },
+      {
+        "address": "0x42003C4C",
+        "frequency": 5
+      },
+      {
+        "address": "0x492A6C00",
+        "frequency": 5
+      },
+      {
+        "address": "0x42003428",
+        "frequency": 5
+      },
+      {
+        "address": "0x42003448",
+        "frequency": 5
+      },
+      {
+        "address": "0x43B7A9B3",
+        "frequency": 5
+      },
+      {
+        "address": "0x4C8EED85",
+        "frequency": 5
+      },
+      {
+        "address": "0x40008221",
+        "frequency": 5
+      },
+      {
+        "address": "0x4B5B0000",
+        "frequency": 5
+      },
+      {
+        "address": "0x4C000000",
+        "frequency": 5
+      },
+      {
+        "address": "0x4A53470A",
+        "frequency": 5
+      },
+      {
+        "address": "0x406F3AF2",
+        "frequency": 5
+      },
+      {
+        "address": "0x44F9FFFF",
+        "frequency": 5
+      },
+      {
+        "address": "0x48000000",
+        "frequency": 4
+      },
+      {
+        "address": "0x40008A45",
+        "frequency": 4
+      },
+      {
+        "address": "0x414F4F43",
+        "frequency": 4
+      },
+      {
+        "address": "0x43A65900",
+        "frequency": 4
+      },
+      {
+        "address": "0x4370F700",
+        "frequency": 4
+      },
+      {
+        "address": "0x453ACB00",
+        "frequency": 4
+      },
+      {
+        "address": "0x44006577",
+        "frequency": 4
+      }
+    ],
+    "reset_handler_disassembly": [
+      {
+        "address": "0x08003191",
+        "mnemonic": "str",
+        "op_str": "r7, [sp, #0x3f4]",
+        "bytes": "fd97"
+      },
+      {
+        "address": "0x08003193",
+        "mnemonic": "subs",
+        "op_str": "r1, #0x8f",
+        "bytes": "8f39"
+      },
+      {
+        "address": "0x08003195",
+        "mnemonic": "revsh",
+        "op_str": "r0, r4",
+        "bytes": "e0ba"
+      },
+      {
+        "address": "0x08003197",
+        "mnemonic": "asrs",
+        "op_str": "r6, r1, #0x1f",
+        "bytes": "ce17"
+      },
+      {
+        "address": "0x08003199",
+        "mnemonic": "adds",
+        "op_str": "r4, #0x2d",
+        "bytes": "2d34"
+      },
+      {
+        "address": "0x0800319B",
+        "mnemonic": "lsrs",
+        "op_str": "r3, r4, #0xb",
+        "bytes": "e30a"
+      }
+    ]
+  },
+  "memory_regions": [
+    {
+      "name": "FLASH",
+      "start": "0x08000000",
+      "end": "0x0804DCE4",
+      "size_bytes": 318692,
+      "type": "code"
+    },
+    {
+      "name": "RAM",
+      "start": "0x20000000",
+      "end": "0x20015940",
+      "size_bytes": 88384,
+      "type": "data"
+    }
+  ]
+}
