@@ -264,8 +264,17 @@ void Radio_StartTX(void)
     Band_t band = freq_to_band(tx_freq);
     if (band == BAND_FM) return;  /* Can't TX on FM broadcast */
     
-    BK4829_Instance_t instance = (band == BAND_VHF) ?
-                                  BK4829_INSTANCE_VHF : BK4829_INSTANCE_UHF;
+#if !DUAL_BAND_ENABLED
+    /* Single-band mode: force VHF */
+    band = BAND_VHF;
+#endif
+    
+    BK4829_Instance_t instance = BK4829_INSTANCE_VHF;
+#if DUAL_BAND_ENABLED
+    if (band == BAND_UHF) {
+        instance = BK4829_INSTANCE_UHF;
+    }
+#endif
     
     /* Set TX frequency and enable TX */
     BK4829_SetFrequency(instance, tx_freq);
@@ -308,8 +317,12 @@ void Radio_StopTX(void)
     
     /* Disable TX on BK4829 */
     Band_t band = g_status.active_band;
-    BK4829_Instance_t instance = (band == BAND_VHF) ?
-                                  BK4829_INSTANCE_VHF : BK4829_INSTANCE_UHF;
+    BK4829_Instance_t instance = BK4829_INSTANCE_VHF;
+#if DUAL_BAND_ENABLED
+    if (band == BAND_UHF) {
+        instance = BK4829_INSTANCE_UHF;
+    }
+#endif
     BK4829_EnableTX(instance, false);
     
     /* Restore RX frequency */

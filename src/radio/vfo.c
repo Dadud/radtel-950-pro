@@ -26,7 +26,9 @@ static const struct {
     uint32_t max_freq;
 } g_band_limits[] = {
     { 136000000, 174000000 },   /* VHF */
-    { 400000000, 520000000 },   /* UHF */
+#if DUAL_BAND_ENABLED
+    { 400000000, 520000000 },   /* UHF - Pro only */
+#endif
     { 76000000, 108000000 },    /* FM broadcast */
 };
 
