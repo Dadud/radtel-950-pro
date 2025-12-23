@@ -1,12 +1,24 @@
-# Build artifacts
-build/output/
-*.elf
-*.bin
-*.hex
-*.map
-*.o
-*.a
-*.d
+# Ghidra installation (too large for git, users extract locally)
+firmware/ghidra/
+
+# Ghidra project files (generated, can be large)
+firmware/*/ghidra_project/
+*.gpr
+*.rep/
+
+# Analysis output (generated files)
+firmware/*/analysis/*.json
+firmware/*/analysis/*.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
 
 # IDE
 .vscode/
@@ -18,8 +30,4 @@ build/output/
 # OS
 .DS_Store
 Thumbs.db
-
-# Old/archived content
-openrtx_radtel/
-sample_code/
-archive-mostly-garbage/
+desktop.ini

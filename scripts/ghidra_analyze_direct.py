@@ -8,9 +8,84 @@ import subprocess
 import sys
 from pathlib import Path
 import os
+import platform
 
-GHIDRA_DIR = r"C:\Users\dadud\Downloads\ghidra_12.0_PUBLIC_20251205\ghidra_12.0_PUBLIC"
-ANALYZE_HEADLESS = os.path.join(GHIDRA_DIR, "support", "analyzeHeadless.bat")
+# Ghidra installation paths (checked in order)
+def find_ghidra():
+    """Find Ghidra installation automatically."""
+    repo_root = Path(__file__).parent.parent
+    possible_locations = [
+        # Local repository folder (recommended)
+        repo_root / "firmware" / "ghidra",
+        # Original user location
+        Path(r"C:\Users\dadud\Downloads\ghidra_12.0_PUBLIC_20251205\ghidra_12.0_PUBLIC"),
+        # Common Windows locations
+        Path("C:/Program Files/Ghidra"),
+        Path(os.path.expanduser("~/Downloads/ghidra_*_PUBLIC")),
+        # Environment variable
+        os.environ.get("GHIDRA_INSTALL_DIR"),
+    ]
+    
+    for base in possible_locations:
+        if base is None:
+            continue
+        
+        # Handle glob patterns
+        if "*" in str(base):
+            import glob
+            matches = glob.glob(str(base))
+            for match in matches:
+                base = Path(match)
+                break
+        else:
+            base = Path(base)
+        
+        # Check if directory exists
+        if not base.exists():
+            continue
+        
+        # Look for ghidra subdirectory or direct support folder
+        if (base / "support" / "analyzeHeadless.bat").exists():
+            return base
+        if (base / "support" / "analyzeHeadless").exists():
+            return base
+        
+            # Check subdirectories (for firmware/ghidra/ghidra_X.X_PUBLIC structure)
+        for item in base.iterdir():
+            if item.is_dir() and "ghidra" in item.name.lower():
+                if (item / "support" / "analyzeHeadless.bat").exists():
+                    return item
+                if (item / "support" / "analyzeHeadless").exists():
+                    return item
+        
+        # Check Downloads folder for ghidra (Windows)
+        if platform.system() == "Windows":
+            downloads = Path(os.path.expanduser("~/Downloads"))
+            if downloads.exists():
+                for item in downloads.iterdir():
+                    if item.is_dir() and "ghidra" in item.name.lower():
+                        # Check nested structure
+                        for subdir in item.iterdir():
+                            if subdir.is_dir() and "ghidra" in subdir.name.lower():
+                                if (subdir / "support" / "analyzeHeadless.bat").exists():
+                                    return subdir
+                        # Check direct structure
+                        if (item / "support" / "analyzeHeadless.bat").exists():
+                            return item
+    
+    return None
+
+GHIDRA_DIR = find_ghidra()
+
+if GHIDRA_DIR is None:
+    GHIDRA_DIR_STR = "NOT_FOUND"
+    ANALYZE_HEADLESS = None
+else:
+    GHIDRA_DIR_STR = str(GHIDRA_DIR)
+    if platform.system() == "Windows":
+        ANALYZE_HEADLESS = os.path.join(GHIDRA_DIR_STR, "support", "analyzeHeadless.bat")
+    else:
+        ANALYZE_HEADLESS = os.path.join(GHIDRA_DIR_STR, "support", "analyzeHeadless")
 
 def main():
     firmware = "firmware/rt950/RT_950_V0.29_251104.BTF"
@@ -27,13 +102,30 @@ def main():
     
     project_dir.mkdir(exist_ok=True)
     
-    if not os.path.exists(ANALYZE_HEADLESS):
-        print(f"Error: analyzeHeadless.bat not found at: {ANALYZE_HEADLESS}")
+    if ANALYZE_HEADLESS is None or not os.path.exists(ANALYZE_HEADLESS):
+        print("=" * 70)
+        print("❌ Ghidra not found!")
+        print("=" * 70)
+        print()
+        print("Ghidra is required for firmware analysis.")
+        print()
+        print("Setup options:")
+        print("  1. Download Ghidra from: https://ghidra-sre.org/Release.html")
+        print("  2. Extract to: firmware/ghidra/ folder")
+        print()
+        print("Quick setup:")
+        print("  python scripts/setup_ghidra.py  # Check status")
+        print("  python scripts/setup_ghidra.py --extract <ghidra.zip>  # Extract")
+        print()
+        print("Or set environment variable:")
+        print("  set GHIDRA_INSTALL_DIR=C:\\path\\to\\ghidra")
+        print()
         sys.exit(1)
     
     print("=" * 70)
     print("Ghidra Headless Analysis - RT-950 Firmware")
     print("=" * 70)
+    print(f"Ghidra: {GHIDRA_DIR_STR}")
     print(f"Firmware: {firmware_path}")
     print(f"Project: {project_dir / project_name}")
     print(f"Analyzer: {ANALYZE_HEADLESS}")
