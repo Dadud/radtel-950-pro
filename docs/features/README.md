@@ -37,6 +37,9 @@ Unique operational modes: enhanced dual-watch, cross-band bridging, repeater dir
 ### [Feasibility Matrix](FEASIBILITY_MATRIX.md)
 Comprehensive comparison of all features: hardware requirements, code complexity, memory usage, CPU load, and implementation risk.
 
+### [OpenRTX Port Feasibility](OPENTX_PORT_FEASIBILITY.md)
+Analysis of porting OpenRTX firmware to RT-950/RT-950 Pro, including hardware compatibility, porting complexity, and stock firmware recovery methods.
+
 ## Implementation Priority
 
 Features are categorized by implementation difficulty and impact:
