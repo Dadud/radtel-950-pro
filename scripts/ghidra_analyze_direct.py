@@ -154,7 +154,7 @@ def main():
         if result.returncode == 0:
             print()
             print("=" * 70)
-            print("✅ Analysis Complete!")
+            print("[OK] Analysis Complete!")
             print("=" * 70)
             print(f"Project location: {project_dir / project_name}")
             print()
@@ -168,20 +168,20 @@ def main():
         else:
             print()
             print("=" * 70)
-            print(f"❌ Analysis failed with return code: {result.returncode}")
+            print(f"[ERROR] Analysis failed with return code: {result.returncode}")
             print("=" * 70)
             return False
             
     except subprocess.TimeoutExpired:
         print()
-        print("❌ Analysis timed out after 2 hours")
+        print("[ERROR] Analysis timed out after 2 hours")
         return False
     except KeyboardInterrupt:
         print()
-        print("❌ Analysis interrupted by user")
+        print("[ERROR] Analysis interrupted by user")
         return False
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"[ERROR] Error: {e}")
         return False
 
 if __name__ == '__main__':
