@@ -2,9 +2,11 @@
 
 <div align="center">
 
-# 🚨 EXPERIMENTAL PROJECT - USE AT YOUR OWN RISK 🚨
+# 🚨 THIS PROJECT IS AI-GENERATED 🚨
 
-### **THIS IS A RESEARCH EXPERIMENT BASED ON REVERSE ENGINEERING**
+### **EXPERIMENTAL RESEARCH PROJECT BASED ON REVERSE ENGINEERING**
+
+### **CONTENT MAY CONTAIN HALLUCINATIONS OR INACCURACIES**
 
 # 🔴 FLASHING FIRMWARE MAY PERMANENTLY BRICK YOUR RADIO 🔴
 
@@ -31,7 +33,10 @@
 - ❌ Code, documentation, and instructions may contain **hallucinations or inaccuracies**
 - ❌ Information may be **incorrect, incomplete, or dangerous**
 - ❌ **DO NOT assume any content is correct or safe to use**
+- ❌ AI systems can generate plausible-sounding but incorrect information
+- ❌ Technical specifications, code implementations, and procedures may be completely wrong
 - ❌ All content should be verified against hardware before use
+- ❌ Treat all AI-generated content with extreme skepticism
 
 **🔴 BRICKING RISK:**
 - 🔥 **Flashing firmware from this project may PERMANENTLY BRICK your radio**
@@ -51,13 +56,16 @@
 
 **⚠️ By using this project, you acknowledge that:**
 - This is an **experimental research project** based on reverse engineering
-- You understand this is AI-generated content with potential inaccuracies
+- You understand this is **AI-generated content** with potential **hallucinations and inaccuracies**
+- **AI-generated content may be completely incorrect or dangerous**
 - You have backed up your original firmware
 - You understand the methodology is based on decompiled/decrypted firmware analysis
+- You understand that AI hallucinations may result in incorrect code, documentation, or procedures
 - You are solely responsible for any damage to your hardware
 - The authors/contributors bear **NO LIABILITY** for any damage or loss
 - Flashing this firmware may **PERMANENTLY BRICK YOUR RADIO**
 - This is **NOT** production firmware and should be treated as experimental research material only
+- **No guarantee is made about the accuracy or safety of any AI-generated content**
 
 ---
 
