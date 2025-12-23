@@ -356,6 +356,25 @@ openocd -f interface/stlink.cfg \
 
 ---
 
+## Feature Research & Ideas
+
+Research documentation for exotic, unique, and advanced features that could be implemented in the RT-950/RT-950 Pro firmware. These features explore capabilities that few commercial ham radios offer.
+
+**[📚 Complete Feature Research Index](docs/features/README.md)** - Overview of all feature research and categories.
+
+### Feature Categories
+
+- **[Digital Modes & Encoding](docs/features/DIGITAL_MODES.md)**: M17, FreeDV, LoRa-like modes, RTTY, Packet Radio, WSPR beacon
+- **[Signal Processing](docs/features/SIGNAL_PROCESSING.md)**: Waterfall displays, SNR/BER estimation, noise reduction, auto-notch filters
+- **[UI/UX Enhancements](docs/features/UI_UX_FEATURES.md)**: Themes, widgets, gestures, help systems, data visualization
+- **[Connectivity & Integration](docs/features/CONNECTIVITY.md)**: APRS iGate, remote control, OTA updates, settings sync, voice recording
+- **[Automation & Macros](docs/features/AUTOMATION.md)**: Smart scanning, scheduling, conditional logic, macro recording
+- **[Exotic Operational Modes](docs/features/EXOTIC_MODES.md)**: Enhanced dual-watch, cross-band bridge, repeater directory, heatmaps
+- **[Feasibility Matrix](docs/features/FEASIBILITY_MATRIX.md)**: Comprehensive comparison of all features with resource requirements
+- **[OpenRTX Port Feasibility](docs/features/OPENTX_PORT_FEASIBILITY.md)**: Analysis of porting OpenRTX firmware to RT-950, including hardware compatibility and stock firmware recovery
+
+---
+
 ## Firmware Encryption
 
 OEM firmware uses "FwCrypt" encryption:
