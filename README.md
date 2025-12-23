@@ -69,9 +69,9 @@
 
 ---
 
-# Radtel RT-950 Pro Open Firmware Project
+# Radtel RT-950 / RT-950 Pro Open Firmware Project
 
-A clean-room firmware re-implementation for the Radtel RT-950 Pro dual-band mobile radio.
+A clean-room firmware re-implementation for the Radtel RT-950 and RT-950 Pro mobile radios. Currently focused on RT-950 Pro with RT-950 support in development.
 
 ## ⚠️ ADDITIONAL DISCLAIMERS
 
@@ -322,7 +322,9 @@ openocd -f interface/stlink.cfg \
 | [`docs/audio_tones.md`](docs/audio_tones.md) | CTCSS/DCS tone generation, APRS/AFSK |
 | [`docs/spi_flash.md`](docs/spi_flash.md) | External flash operations |
 | [`docs/Function_Names.csv`](docs/Function_Names.csv) | Firmware function catalogue |
-| [`firmware/README.md`](firmware/README.md) | Ghidra setup and binary files |
+| [`firmware/README.md`](firmware/README.md) | Firmware binaries and analysis |
+| [`firmware/GHIDRA_ANALYSIS.md`](firmware/GHIDRA_ANALYSIS.md) | Ghidra analysis guide |
+| [`docs/RT950_COMPARISON.md`](docs/RT950_COMPARISON.md) | **RT-950 vs RT-950 Pro comparison** |
 | [`src/README.md`](src/README.md) | Clean-room firmware documentation |
 
 ### Source Code Documentation & AI Reasoning
