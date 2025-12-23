@@ -137,7 +137,7 @@ static void System_Init(void)
     SPIFlash_Init();
     
     /* Load saved settings from flash */
-    Settings_Load();
+    Settings_Init();
     
     /* Initialize RF transceivers */
     BK4829_Init(BK4829_INSTANCE_VHF);  /* Primary RF - hardware SPI */
@@ -151,7 +151,7 @@ static void System_Init(void)
     
     /* Initialize communication interfaces */
     GPS_Init();
-    Bluetooth_Init();
+    BT_Init();
     CDC_Init();
     
     /* Initialize radio state machine */
@@ -191,13 +191,13 @@ int main(void)
         GPS_Process();
         
         /* Process Bluetooth commands */
-        Bluetooth_Process();
+        BT_Process();
         
         /* Process CDC/USB commands */
         CDC_Process();
         
         /* Flush display buffer if needed */
-        Display_Refresh();
+        Display_Update();
         
         /* Power management - check for shutdown request */
         if (Power_IsShutdownRequested()) {

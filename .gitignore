@@ -1,5 +1,25 @@
+# Build artifacts
+build/output/
+*.elf
+*.bin
+*.hex
+*.map
+*.o
+*.a
+*.d
+
+# IDE
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old/archived content
 openrtx_radtel/
 sample_code/
-.DS_Store
 archive-mostly-garbage/

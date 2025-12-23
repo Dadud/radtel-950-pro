@@ -1,8 +1,48 @@
+# ⚠️⚠️⚠️ CRITICAL WARNING ⚠️⚠️⚠️
+
+<div align="center">
+
+# 🚨 THIS PROJECT IS AI-GENERATED 🚨
+
+### **CONTENT MAY CONTAIN HALLUCINATIONS OR INACCURACIES**
+
+# 🔴 FLASHING FIRMWARE MAY PERMANENTLY BRICK YOUR RADIO 🔴
+
+**USE AT YOUR OWN RISK**
+
+**NO WARRANTY OR GUARANTEE OF ACCURACY OR FUNCTIONALITY**
+
+</div>
+
+---
+
+**⚠️ AI-GENERATED CONTENT WARNING:**
+- ❌ This project and its documentation are almost entirely **AI-generated**
+- ❌ Code, documentation, and instructions may contain **hallucinations or inaccuracies**
+- ❌ Information may be **incorrect, incomplete, or dangerous**
+- ❌ **DO NOT assume any content is correct or safe to use**
+
+**🔴 BRICKING RISK:**
+- 🔥 **Flashing firmware from this project may PERMANENTLY BRICK your radio**
+- 🔥 **Your radio may become completely unusable**
+- 🔥 **Repairs may be impossible or require expensive hardware replacement**
+- 🔥 **Calibration data may be permanently lost**
+- 🔥 **No recovery method may be available**
+
+**By using this project, you acknowledge that:**
+- You understand this is AI-generated content with potential inaccuracies
+- You have backed up your original firmware
+- You are solely responsible for any damage to your hardware
+- The authors/contributors bear **NO LIABILITY** for any damage or loss
+- Flashing this firmware may **PERMANENTLY BRICK YOUR RADIO**
+
+---
+
 # Radtel RT-950 Pro Open Firmware Project
 
 A clean-room firmware re-implementation for the Radtel RT-950 Pro dual-band mobile radio.
 
-## ⚠️ IMPORTANT DISCLAIMER
+## ⚠️ ADDITIONAL DISCLAIMERS
 
 **This is experimental firmware under active development.**
 
@@ -107,6 +147,8 @@ See [`docs/pinout.md`](docs/pinout.md) for the full GPIO mapping extracted from 
 
 ## Building the Firmware
 
+> **📖 For detailed step-by-step instructions, see [`docs/BUILD_AND_FLASH.md`](docs/BUILD_AND_FLASH.md)**
+
 ### Prerequisites
 
 1. **ARM GCC Toolchain** (arm-none-eabi-gcc 10.x or later)
@@ -152,6 +194,8 @@ make -j$(nproc)
 ---
 
 ## Flashing
+
+> **📖 For detailed flashing instructions, troubleshooting, and verification steps, see [`docs/BUILD_AND_FLASH.md`](docs/BUILD_AND_FLASH.md)**
 
 ### ⚠️ BACKUP FIRST
 
@@ -231,6 +275,7 @@ openocd -f interface/stlink.cfg \
 
 | Document | Description |
 |----------|-------------|
+| [`docs/BUILD_AND_FLASH.md`](docs/BUILD_AND_FLASH.md) | **Complete build and flashing guide** |
 | [`docs/pinout.md`](docs/pinout.md) | Complete GPIO pin assignments |
 | [`docs/display.md`](docs/display.md) | LCD interface details and DMA usage |
 | [`docs/audio_tones.md`](docs/audio_tones.md) | CTCSS/DCS tone generation, APRS/AFSK |
