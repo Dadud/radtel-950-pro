@@ -2,8 +2,8 @@ Radtel Peripheral & Pin Summary
 
 | Module | Peripheral / Base | Pins & Signals | Key Firmware Functions | Notes |
 | --- | --- | --- | --- | --- |
-| BK4829 #1 (HW SPI) | SPI1 @ 0x40013000<br>Data: 0x4001300C | PB12 CS via GPIOB BSRR 0x40010C10 / BRR 0x40010C14 | spi_xfer_byte(FUN_8002112c), BK4829_init(FUN_80007f04), RF_Set_Frequency_Synthesizer(FUN_8000b62c) | Historical capture showed PB4 (mask 0x10); current firmware drives PB12 (mask 0x1000). |
-| BK4829 #2 (SW SPI) | GPIOA bit-bang @ 0x40010800<br>SCR 0x40010810 / CLR 0x40010814 | PA5 CS, PA6 SCLK, PA7 MOSI | Software_SPI_Write_Byte(FUN_80021234), Software_SPI_Write_Block(FUN_80021290), Software_SPI_FlashErase4K (FUN_800210c0), Software_SPI_FlashErase32KBlock (FUN_80020f80), Software_SPI_FlashErase64KBlock (FUN_80020ff0) | Second RF front-end path written over GPIO toggles. |
+| BK4829 #1 (U11) | GPIOE bit-bang | PE10 SCK, PE11 SDATA, PE8 SCN (SEN1) | BK4829_init(FUN_80007f04), RF_Set_Frequency_Synthesizer(FUN_8000b62c) | CONFIRMED from schematic: U11 (BK4829), 26 MHz crystal. 3-wire SPI: SCK/SCN/SDATA. Signal names: RDA_SCK, RDA_SDA, RDA_SEN. |
+| BK4829 #2 (U12) | GPIOE bit-bang | PE10 SCK, PE11 SDATA, PE15 SCN (SEN2) | Same as BK4829 #1 | CONFIRMED from schematic: U12 (BK4829), shared SPI bus with #1, separate CS on PE15. VHF/UHF dual-band configuration. |
 | SI4732 (Bit-bang I2C / TBD) | GPIOA bit-bang | PA8 SCL, PA9 SDA | (pending rename) | Lines shared with discrete I2C routine; no hardware I2C peripheral observed. |
 | GPS Receiver | USART3 @ 0x40004800 | PC10 TX?, PC11 RX (shared with UART4) | GPS_USART3_Init (FUN_80013f90), FUN_8001403c | Configures 9600 baud NMEA stream; high confidence. PC10/PC11 also remapped by UART4 when Bluetooth accessory is active. |
 | Bluetooth Link (Main) | USART1 @ 0x40013800 | PA9 TX, PA10 RX | Bluetooth_UART1_Init (FUN_8000834c), FUN_80008518 | 115200 baud to on-board BT module (probable). Captured strings include 'BLUETOOTH'. |
@@ -94,11 +94,11 @@ PE4 = POWER AMP ENABLE
 PE5 = SIDE KEY 1  
 PE6 = EXTERNAL PTT  
 PE7 = U3T EN  
-PE8 = BK4829 SEN1  
+PE8 = BK4829 SEN1 (CS for U11/BK4829 #1)  
 PE9 = SW TO BT ??  
-PE10 = BK4829 SCK  
-PE11 = BK4829 SDA  
+PE10 = BK4829 SCK (SPI clock, shared by both BK4829 chips)  
+PE11 = BK4829 SDA (SPI data, shared by both BK4829 chips)  
 PE12 = U3R ENABLE  
 PE13 = U6R ENABLE  
 PE14 = SW3T ENABLE  
-PE15 = BK4829 SEN2  
+PE15 = BK4829 SEN2 (CS for U12/BK4829 #2)  

@@ -273,14 +273,20 @@ void BK4829_SetFrequency(BK4829_Instance_t instance, uint32_t frequency_hz)
      * The frequency synthesizer uses a fractional-N PLL.
      * Register 0x38/0x39 contain the frequency word.
      * 
-     * INFERRED: Frequency = (N + F/65536) * Fref
-     * where Fref is typically 12.8 MHz or 26 MHz
+     * CONFIRMED from datasheet: Crystal reference is 26 MHz
      * 
-     * TODO: Verify exact formula from captured register values
+     * Datasheet formula:
+     *   RX mode: f_locked = Ndiv × (fwanted - fIF)
+     *   TX mode: f_locked = Ndiv × fwanted
+     * 
+     * The simplified calculation below approximates:
+     *   Frequency ≈ (N + F/65536) × 26000000
+     * 
+     * TODO: Verify exact register programming with Ndiv and fIF
      */
     
-    /* Approximate calculation assuming 12.8 MHz reference */
-    uint32_t fref = 12800000;
+    /* Use 26 MHz reference (CONFIRMED from BK4829 datasheet) */
+    uint32_t fref = 26000000;
     uint32_t div = frequency_hz / fref;
     uint32_t frac = ((frequency_hz % fref) * 65536) / fref;
     

@@ -10,6 +10,13 @@
  * Register definitions and initialization sequences are INFERRED from
  * OEM firmware analysis and BK4829 datasheet information.
  * 
+ * CONFIRMED from datasheet (DS-BK4829-E01 V1.0):
+ *   - Crystal reference: 26 MHz
+ *   - Frequency range: 18-580 MHz, 760-1160 MHz
+ *   - SPI: 3-wire interface (SCK, SCN, SDATA), max 8 MHz
+ *   - TX power: -5 to +8 dBm (on-chip 7 dBm PA)
+ *   - RX sensitivity: -124 dBm typical
+ * 
  * @note The BK4829 is register-compatible with BK1080/BK4802/BK1088.
  */
 
@@ -39,6 +46,12 @@ typedef enum {
  * 
  * The BK4829 uses a 7-bit register address space.
  * Registers are 16 bits wide.
+ * 
+ * SPI Interface (CONFIRMED from datasheet):
+ *   - SCK (Pin 25): Clock, max 8 MHz
+ *   - SCN (Pin 26): Chip select/enable
+ *   - SDATA (Pin 27): Bidirectional data
+ *   - Data latched on SCK rising edge, output on falling edge
  */
 
 /* Basic control registers */
